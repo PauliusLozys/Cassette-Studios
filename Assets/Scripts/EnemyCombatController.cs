@@ -2,27 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyCombat : MonoBehaviour
+public class EnemyCombatController : MonoBehaviour
 {
-    public LayerMask playerMask;
+    public LayerMask whatIsDamageable;
     public Transform attackPoint;
 
-    public float attackRange = 0.5f;
+    public float attackRange = 3f;
 
-    public float attackRate = 2; // attacks per second
+    public float attackRate = 1; // attacks per second
     float nextAttackTime = 0f;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
     {
-        var tmp = Physics2D.OverlapCircle(attackPoint.position, attackRange, playerMask);
-        
+        var tmp = Physics2D.OverlapCircle(attackPoint.position, attackRange, whatIsDamageable);
+
         if (Time.time >= nextAttackTime)
         {
             if (tmp != null)
