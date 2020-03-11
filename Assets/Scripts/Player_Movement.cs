@@ -39,5 +39,6 @@ public class Player_Movement : MonoBehaviour
         jump = false;
         animator.SetFloat("isJumping", m_Rigidbody2D.velocity.y);
         animator.SetFloat("isFalling", m_Rigidbody2D.velocity.y);
+        animator.SetFloat("isWalking", Mathf.Abs(horizontalMove));
     }
 }
