@@ -1972,7 +1972,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2048
   k_GroundedRadius: 0.15
-  speed: 1
+  force: 200
   stoppingDistance: 1.3
   m_JumpForce: 200
 --- !u!58 &2127587230

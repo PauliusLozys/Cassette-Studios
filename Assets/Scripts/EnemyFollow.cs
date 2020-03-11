@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,11 +12,12 @@ public class EnemyFollow : MonoBehaviour
     public LayerMask whatIsWall;
     public float k_GroundedRadius = 0.5f;
 
-    public float speed = 2f;
+    public float force;
     public float stoppingDistance = 1.5f;
     public float m_JumpForce = 250;
     private bool m_FacingRight = true;
     private bool jump = false;
+    private float max_walking_velocity = 2f;
 
     void Start()
     {
@@ -31,13 +33,25 @@ public class EnemyFollow : MonoBehaviour
 
         if (player.position.x > transform.position.x + stoppingDistance)
         {
+            Debug.Log(m_Rigidbody2D.velocity);
 
-            m_Rigidbody2D.position = new Vector2(m_Rigidbody2D.position.x + speed * Time.deltaTime, transform.position.y);
-            //transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+            //if (m_Rigidbody2D.velocity.x < 0 && m_Rigidbody2D.velocity.x == max_walking_velocity)
+            //    m_Rigidbody2D.velocity = new Vector2(0f, 0f);
+
+            if (m_Rigidbody2D.velocity.x < max_walking_velocity)
+                m_Rigidbody2D.AddForce(new Vector2(force * Time.deltaTime,0f));
+
         }
         else if (player.position.x < transform.position.x - stoppingDistance)
         {
-            m_Rigidbody2D.position = new Vector2(m_Rigidbody2D.position.x - speed * Time.deltaTime, transform.position.y);
+            Debug.Log(m_Rigidbody2D.velocity);
+
+            //if (m_Rigidbody2D.velocity.x > 0 && m_Rigidbody2D.velocity.x == max_walking_velocity)
+            //    m_Rigidbody2D.velocity = new Vector2(0f, m_Rigidbody2D.velocity.y);
+
+            if (m_Rigidbody2D.velocity.x > -max_walking_velocity)
+                m_Rigidbody2D.AddForce(new Vector2(-force * Time.deltaTime, 0f));
+
         }
 
         if (jump)
