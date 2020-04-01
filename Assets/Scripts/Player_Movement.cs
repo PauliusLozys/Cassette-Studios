@@ -8,7 +8,7 @@ public class Player_Movement : MonoBehaviour
     public Animator animator;
     private Rigidbody2D m_Rigidbody2D;
     public float runSpeed = 40f;
-    float horizontalMove = 0f;
+    protected float horizontalMove = 0f;
     bool jump = false;
 
     private void Awake()
@@ -27,18 +27,11 @@ public class Player_Movement : MonoBehaviour
         }
     }
 
-    public void OnLanding()
-    {
-        animator.SetFloat("isJumping", 0.0f);
-        animator.SetFloat("isFalling", 0.0f);
-    }
 
     void FixedUpdate()
     {
         controller.Move(horizontalMove * Time.fixedDeltaTime, jump);
         jump = false;
-        animator.SetFloat("isJumping", m_Rigidbody2D.velocity.y);
-        animator.SetFloat("isFalling", m_Rigidbody2D.velocity.y);
-        animator.SetFloat("isWalking", Mathf.Abs(horizontalMove));
+        
     }
 }
