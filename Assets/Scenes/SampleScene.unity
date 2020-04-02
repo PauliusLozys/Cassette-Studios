@@ -364,7 +364,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1517944931
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2099,6 +2099,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Skeleton
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443276782074653554, guid: d279d5bcf8665244faeb3228cf12d9e3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1443276782074653567, guid: d279d5bcf8665244faeb3228cf12d9e3,
         type: 3}
