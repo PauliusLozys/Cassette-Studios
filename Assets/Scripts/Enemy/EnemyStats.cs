@@ -10,17 +10,20 @@ public class EnemyStats : MonoBehaviour
 
     private float currentHealth;
 
+    public EnemyHealthBar HealthBar;
 
     private void Start()
     {
+        HealthBar.SetMaxHealth(maxHealth);
         currentHealth = maxHealth;
+        
     }
 
     public void DecreaseHealth(float amount)
     {
         currentHealth -= amount;
         Debug.Log(currentHealth);
-
+        HealthBar.SetHealth(currentHealth);
         if (currentHealth <= 0.0f)
         {
             Die();
