@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class PlayerCombatController : MonoBehaviour
 {
     [SerializeField]
@@ -78,10 +77,10 @@ public class PlayerCombatController : MonoBehaviour
 
         attackDetails[0] = attack1Damage;
         attackDetails[1] = transform.position.x;
-
+        
         foreach (var  collider in detectedObjects)
         {
-            Debug.Log("THATS A LOT OF DAMAGE");
+            collider.GetComponent<EnemyStats>().DecreaseHealth(attack1Damage);
         }
     }
 

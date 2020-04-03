@@ -42,10 +42,10 @@ GameObject:
   - component: {fileID: 1443276782074653566}
   - component: {fileID: 1443276782074653565}
   - component: {fileID: 1443276782074653564}
-  - component: {fileID: 1443276782074653555}
   - component: {fileID: 1443276782074653561}
   - component: {fileID: 1443276782074653560}
   - component: {fileID: 1443276782074653562}
+  - component: {fileID: 8642568231718952427}
   m_Layer: 10
   m_Name: Skeleton
   m_TagString: Enemy
@@ -165,24 +165,8 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.17, y: 1.51}
+  m_Size: {x: 1.0599967, y: 2.2855034}
   m_EdgeRadius: 0
---- !u!58 &1443276782074653555
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1443276782074653554}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 6200000, guid: 34c732f898c4c214483a2d682e67622e, type: 2}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.67}
-  serializedVersion: 2
-  m_Radius: 0.55
 --- !u!114 &1443276782074653561
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -238,6 +222,19 @@ CircleCollider2D:
   m_Offset: {x: 0.97439885, y: -0.88}
   serializedVersion: 2
   m_Radius: 0.29009485
+--- !u!114 &8642568231718952427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1443276782074653554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac44adda267320146aebadf5c308abb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
 --- !u!1 &1443276782304082167
 GameObject:
   m_ObjectHideFlags: 0

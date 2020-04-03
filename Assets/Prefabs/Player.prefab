@@ -333,7 +333,7 @@ MonoBehaviour:
   combatEnabled: 1
   inputTimer: 0.2
   attack1Radius: 0.8
-  attack1Damage: 0
+  attack1Damage: 20
   attack1HitBoxPos: {fileID: 2011612969481061823}
   whatIsDamageable:
     serializedVersion: 2
