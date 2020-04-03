@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -32,7 +33,7 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D rb;
     private Animator anim;
-
+    private Interactable currentInteractableObject = null;
     public int amountOfJumps = 1;
 
     public float movementSpeed = 10.0f;
@@ -66,6 +67,8 @@ public class PlayerController : MonoBehaviour
 
     public LayerMask whatIsGround;
 
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -85,6 +88,19 @@ public class PlayerController : MonoBehaviour
         CheckIfCanJump();
         CheckIfWallSliding();
         CheckJump();
+        CheckInteraction();
+    }
+
+    private void CheckInteraction()
+    {
+
+        if (Input.GetKeyDown(KeyCode.E) && currentInteractableObject != null)
+        {
+            Debug.Log(currentInteractableObject.Message);
+           // Debug.Log("This should open a shop");
+        }
+
+
     }
 
     private void FixedUpdate()
@@ -109,6 +125,7 @@ public class PlayerController : MonoBehaviour
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
 
         isTouchingWall = Physics2D.Raycast(wallCheck.position, transform.right, wallCheckDistance, whatIsGround);
+
     }
 
     private void CheckIfCanJump()
@@ -212,13 +229,10 @@ public class PlayerController : MonoBehaviour
     }
 
 
-
     public int GetFacingDirection()
     {
         return facingDirection;
     }
-
-   
 
     private void CheckJump()
     {
@@ -332,6 +346,22 @@ public class PlayerController : MonoBehaviour
             isFacingRight = !isFacingRight;
             transform.Rotate(0.0f, 180.0f, 0.0f);
         }
+    }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Interactable"))
+        {
+            currentInteractableObject = collision.GetComponent<Interactable>();
+            currentInteractableObject.showPopup();
+            //currentInteractableObject.InterractionCanvas.SetActive(true);
+        }
+    }
+    public void OnTriggerExit2D(Collider2D collision)
+    {
+        //currentInteractableObject.InterractionCanvas.SetActive(false);
+        currentInteractableObject.hidePopup();
+        currentInteractableObject = null;
     }
 
     private void OnDrawGizmos()
