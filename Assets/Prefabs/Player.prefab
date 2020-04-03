@@ -288,8 +288,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c1b8e93a8f433d4c92af88353f25724, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  knockbackDuration: 0
-  knockbackSpeed: {x: 0, y: 0}
   amountOfJumps: 2
   movementSpeed: 9
   jumpForce: 21
@@ -319,7 +317,7 @@ MonoBehaviour:
   ledgeCheck: {fileID: 2011612968173548533}
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 3639
+    m_Bits: 2048
 --- !u!114 &1529623780
 MonoBehaviour:
   m_ObjectHideFlags: 0
