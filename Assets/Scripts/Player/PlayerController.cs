@@ -354,14 +354,16 @@ public class PlayerController : MonoBehaviour
         {
             currentInteractableObject = collision.GetComponent<Interactable>();
             currentInteractableObject.showPopup();
-            //currentInteractableObject.InterractionCanvas.SetActive(true);
+
         }
     }
     public void OnTriggerExit2D(Collider2D collision)
     {
-        //currentInteractableObject.InterractionCanvas.SetActive(false);
-        currentInteractableObject.hidePopup();
-        currentInteractableObject = null;
+        if(currentInteractableObject != null)
+        {
+            currentInteractableObject.hidePopup();
+            currentInteractableObject = null;
+        }
     }
 
     private void OnDrawGizmos()
