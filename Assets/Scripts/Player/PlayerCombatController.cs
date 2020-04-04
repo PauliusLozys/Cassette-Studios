@@ -95,4 +95,9 @@ public class PlayerCombatController : MonoBehaviour
         Gizmos.DrawWireSphere(attack1HitBoxPos.position, attack1Radius);
     }
 
+    public void SetCombat(bool state)
+    {
+        combatEnabled = state;
+    }
+
 }

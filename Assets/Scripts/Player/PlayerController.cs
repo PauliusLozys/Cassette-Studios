@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D rb;
     private Animator anim;
-    private Interactable currentInteractableObject = null;
+
     public int amountOfJumps = 1;
 
     public float movementSpeed = 10.0f;
@@ -88,20 +88,9 @@ public class PlayerController : MonoBehaviour
         CheckIfCanJump();
         CheckIfWallSliding();
         CheckJump();
-        CheckInteraction();
     }
 
-    private void CheckInteraction()
-    {
 
-        if (Input.GetKeyDown(KeyCode.E) && currentInteractableObject != null)
-        {
-            Debug.Log(currentInteractableObject.Message);
-           // Debug.Log("This should open a shop");
-        }
-
-
-    }
 
     private void FixedUpdate()
     {
@@ -348,23 +337,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Interactable"))
-        {
-            currentInteractableObject = collision.GetComponent<Interactable>();
-            currentInteractableObject.showPopup();
 
-        }
-    }
-    public void OnTriggerExit2D(Collider2D collision)
-    {
-        if(currentInteractableObject != null)
-        {
-            currentInteractableObject.hidePopup();
-            currentInteractableObject = null;
-        }
-    }
 
     private void OnDrawGizmos()
     {
