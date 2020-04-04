@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class Interactable : MonoBehaviour
 {
+    public enum ShopType
+    {
+        WeaponShop,
+        StatusShop
+    }
     public Transform popup;
-    public string Message;
+    public ShopType shopType;
     private Transform instance;
-    //public GameObject InterractionCanvas;
+
 
     public void showPopup()
     {
