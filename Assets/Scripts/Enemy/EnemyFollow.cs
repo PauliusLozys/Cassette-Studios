@@ -33,7 +33,7 @@ public class EnemyFollow : MonoBehaviour
 
         if (player.position.x > transform.position.x + stoppingDistance)
         {
-            Debug.Log(m_Rigidbody2D.velocity);
+            //Debug.Log(m_Rigidbody2D.velocity);
 
             //if (m_Rigidbody2D.velocity.x < 0 && m_Rigidbody2D.velocity.x == max_walking_velocity)
             //    m_Rigidbody2D.velocity = new Vector2(0f, 0f);
