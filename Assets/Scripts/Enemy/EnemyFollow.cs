@@ -11,6 +11,7 @@ public class EnemyFollow : MonoBehaviour
     public Transform groundCheck;
     public LayerMask whatIsWall;
     public float k_GroundedRadius = 0.5f;
+    public Animator anim;
 
     public float force;
     public float stoppingDistance = 1.5f;
@@ -22,6 +23,7 @@ public class EnemyFollow : MonoBehaviour
     void Start()
     {
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
 
@@ -53,6 +55,8 @@ public class EnemyFollow : MonoBehaviour
                 m_Rigidbody2D.AddForce(new Vector2(-force * Time.deltaTime, 0f));
 
         }
+
+        anim.SetFloat("isWalking", Mathf.Abs(m_Rigidbody2D.velocity.x));
 
         if (jump)
         {
