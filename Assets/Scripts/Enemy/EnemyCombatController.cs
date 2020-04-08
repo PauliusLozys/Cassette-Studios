@@ -12,7 +12,7 @@ public class EnemyCombatController : MonoBehaviour
 
     public float attackRate = 1; // attacks per second
     float nextAttackTime = 0f;
-    private bool canAttack, attack1 = true, attack2 = false;
+    //private bool isAttacking = false;
 
     private void Start()
     {
@@ -28,9 +28,9 @@ public class EnemyCombatController : MonoBehaviour
         {
             if (tmp != null)
             {
+                //canAttack = true;
                 Attack();
                 nextAttackTime = Time.time + 1f / attackRate;
-                canAttack = true;
             }
         }
     }
@@ -38,17 +38,22 @@ public class EnemyCombatController : MonoBehaviour
     void Attack()
     {
         Debug.Log("Player hit");
-        CheckAttacks();
+        anim.SetBool("canAttack", true);
     }
 
-    void CheckAttacks()
+    //void CheckAttacks()
+    //{
+    //    anim.SetBool("canAttack", canAttack);
+    //    canAttack = false;
+    //    anim.SetBool("canAttack", canAttack);
+    //}
+
+    void FinnishAttack()
     {
-        anim.SetBool("attack1", attack1);
-        anim.SetBool("attack2", attack2);
-        anim.SetBool("canAttack", canAttack);
-        attack1 = false;
-        attack2 = true;
-        canAttack = false;
+        //canAttack = false;
+        anim.SetBool("canAttack", false);
+
+        Debug.Log("animation end");
     }
 
     private void OnDrawGizmosSelected()

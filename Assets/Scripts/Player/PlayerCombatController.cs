@@ -31,8 +31,11 @@ public class PlayerCombatController : MonoBehaviour
 
     private void Update()
     {
-        CheckCombatInput();
-        CheckAttacks();
+        if (!PauseMenu.GameIsPaused && !Pause.GameIsPaused)
+        {
+            CheckCombatInput();
+            CheckAttacks();
+        } 
     }
 
     private void CheckCombatInput()
