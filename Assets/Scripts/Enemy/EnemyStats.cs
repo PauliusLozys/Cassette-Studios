@@ -11,17 +11,19 @@ public class EnemyStats : MonoBehaviour
     private float currentHealth;
 
     public EnemyHealthBar HealthBar;
+    private Animator anim; 
 
     private void Start()
     {
         HealthBar.SetMaxHealth(maxHealth);
         currentHealth = maxHealth;
-        
+        anim = GetComponent<Animator>();
     }
 
     public void DecreaseHealth(float amount)
     {
         currentHealth -= amount;
+        anim.SetBool("isHit", true);
         Debug.Log(currentHealth);
         HealthBar.SetHealth(currentHealth);
         if (currentHealth <= 0.0f)
@@ -35,5 +37,8 @@ public class EnemyStats : MonoBehaviour
         Destroy(gameObject);
     }
 
-
+    public void FinnishAnimation()
+    {
+        anim.SetBool("isHit", false);
+    }
 }

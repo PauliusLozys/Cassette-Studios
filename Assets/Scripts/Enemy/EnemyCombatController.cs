@@ -39,6 +39,7 @@ public class EnemyCombatController : MonoBehaviour
     {
         Debug.Log("Player hit");
         anim.SetBool("canAttack", true);
+        anim.SetBool("isAttacking", true);
     }
 
     //void CheckAttacks()
@@ -52,6 +53,7 @@ public class EnemyCombatController : MonoBehaviour
     {
         //canAttack = false;
         anim.SetBool("canAttack", false);
+        anim.SetBool("isAttacking", false);
 
         Debug.Log("animation end");
     }
