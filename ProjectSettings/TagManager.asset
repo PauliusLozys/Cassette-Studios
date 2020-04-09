@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Obsticle
+  - Interactable
   layers:
   - Default
   - TransparentFX
@@ -16,10 +17,10 @@ TagManager:
   - 
   - 
   - Player
-  - Movement ground
-  - Enemy
-  - Obsticle
   - 
+  - Enemy
+  - MovementGround
+  - Interactable
   - 
   - 
   - 
