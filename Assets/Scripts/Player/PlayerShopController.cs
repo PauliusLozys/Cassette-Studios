@@ -39,7 +39,7 @@ public class PlayerShopController : MonoBehaviour, IShopCustomer
                 statshop.Show(this);
             }
         }
-        else if(Input.GetKeyDown(KeyCode.Escape) && IsShopOpen)
+        else if(Input.GetKeyDown(KeyCode.Q) && IsShopOpen)
         {
             Debug.Log("Shop closed");
             itemShop.Hide();
