@@ -10,6 +10,10 @@ public class PlayerController : MonoBehaviour
     private float jumpTimer;
     private float turnTimer;
     private float wallJumpTimer;
+    private float dashTimeLeft;
+    private float lastImageXpos;
+    private float lastDash = -100;
+
 
     private int amountOfJumpsLeft;
     private int facingDirection = 1;
@@ -30,7 +34,7 @@ public class PlayerController : MonoBehaviour
     private bool isTouchingLedge;
     private bool canClimbLedge = false;
     private bool ledgeDetected;
-
+    private bool isDashing;
 
     private Rigidbody2D rb;
     private Animator anim;
@@ -94,6 +98,7 @@ public class PlayerController : MonoBehaviour
         CheckIfWallSliding();
         CheckJump();
         CheckLedgeClimb();
+        CheckDash();
     }
 
 
@@ -266,9 +271,49 @@ public class PlayerController : MonoBehaviour
             checkJumpMultiplier = false;
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * variableJumpHeightMultiplier);
         }
+        if (Input.GetButton("Dash"))
+        {
+            if (Time.time >= (lastDash + dashCoolDown))
+                AttemptToDash();
+        }
 
     }
+    private void AttemptToDash()
+    {
+        isDashing = true;
+        dashTimeLeft = dashTime;
+        lastDash = Time.time;
 
+        PlayerAfterImagePool.Instance.GetFromPool();
+        lastImageXpos = transform.position.x;
+    }
+    private void CheckDash()
+    {
+        if (isDashing)
+        {
+            if (dashTimeLeft > 0)
+            {
+                canMove = false;
+                canFlip = false;
+                rb.velocity = new Vector2(dashSpeed * facingDirection, 0.0f);
+                dashTimeLeft -= Time.deltaTime;
+
+                if (Mathf.Abs(transform.position.x - lastImageXpos) > distanceBetweenImages)
+                {
+                    PlayerAfterImagePool.Instance.GetFromPool();
+                    lastImageXpos = transform.position.x;
+                }
+            }
+
+            if (dashTimeLeft <= 0 || isTouchingWall)
+            {
+                isDashing = false;
+                canMove = true;
+                canFlip = true;
+            }
+
+        }
+    }
 
     public int GetFacingDirection()
     {

@@ -309,7 +309,7 @@ MonoBehaviour:
   dashTime: 0.1
   dashSpeed: 50
   distanceBetweenImages: 0.1
-  dashCoolDown: 2.5
+  dashCoolDown: 3
   wallHopDirection: {x: 1, y: 0.5}
   wallJumpDirection: {x: 1, y: 2}
   groundCheck: {fileID: 2011612969299020570}
