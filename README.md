@@ -1,4 +1,4 @@
-# Cassette-Studios
+# Cassette-Studios game
 Game made for KTU/SneakyBox using Unity engine
 
 A spooky game set in a spooky castle that is very spooky to go into.
