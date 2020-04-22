@@ -49,6 +49,8 @@ MonoBehaviour:
     type: 3}
   HealthIconSprite: {fileID: 5860025163644826426, guid: 05a8d85b5986c444fb8081142c070dad,
     type: 3}
+  RangedIconSprite: {fileID: 6214652250989123760, guid: 05a8d85b5986c444fb8081142c070dad,
+    type: 3}
   AgilityIconSprite: {fileID: 7062176475876359583, guid: 05a8d85b5986c444fb8081142c070dad,
     type: 3}
   JumpingIconSprite: {fileID: 6395214293025444372, guid: 05a8d85b5986c444fb8081142c070dad,

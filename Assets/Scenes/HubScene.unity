@@ -2915,6 +2915,26 @@ PrefabInstance:
       propertyPath: playerHealthBar
       value: 
       objectReference: {fileID: 1579599435}
+    - target: {fileID: 2023197335925683689, guid: 3d77523ac00ac6c4fbeb7f658cd492ec,
+        type: 3}
+      propertyPath: currentHealth
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2023197335925683689, guid: 3d77523ac00ac6c4fbeb7f658cd492ec,
+        type: 3}
+      propertyPath: movementSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2023197335925683689, guid: 3d77523ac00ac6c4fbeb7f658cd492ec,
+        type: 3}
+      propertyPath: playerDamage
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2023197335925683689, guid: 3d77523ac00ac6c4fbeb7f658cd492ec,
+        type: 3}
+      propertyPath: numberOfJumps
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d77523ac00ac6c4fbeb7f658cd492ec, type: 3}
 --- !u!1 &1233774818

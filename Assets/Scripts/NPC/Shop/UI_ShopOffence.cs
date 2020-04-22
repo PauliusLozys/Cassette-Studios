@@ -23,6 +23,7 @@ public class UI_ShopOffence : MonoBehaviour
     private void Start()
     {
         list.Add(CreateItemButton(Item.OffenceStat.WeaponUpgrade, "Weapon upgrade", 0));
+        list.Add(CreateItemButton(Item.OffenceStat.RangedUpgrade, "Bow upgrade", 1));
     }
     private Transform CreateItemButton(Item.OffenceStat stat, string itemName, int positionIndex)
     {
@@ -47,12 +48,18 @@ public class UI_ShopOffence : MonoBehaviour
     {
         switch (stat)
         {
+            
             default:
             case Item.OffenceStat.WeaponUpgrade:
                 if (playerStats.GetPlayerDamage() == playerStats.GetStatusCaps(stat))
                     return "Maximum limit reaced";
                 else
                     return $"Current weapon damage {playerStats.GetPlayerDamage()}/{playerStats.GetStatusCaps(stat)}";
+            case Item.OffenceStat.RangedUpgrade:
+                if (playerStats.GetPlayerRangedDamage() == playerStats.GetStatusCaps(stat))
+                    return "Maximum limit reaced";
+                else
+                    return $"Current ranged damage {playerStats.GetPlayerRangedDamage()}/{playerStats.GetStatusCaps(stat)}";
         }
     }
     private void TryBuyItem(Item.OffenceStat stat, int itemIndex)
