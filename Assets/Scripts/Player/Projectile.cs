@@ -20,7 +20,7 @@ public class Projectile : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D hitInfo)
     {
-        if (hitInfo.gameObject.tag != "Player")
+        if (hitInfo.gameObject.tag != "Player"&& hitInfo.gameObject.tag != "LevelArea")
         {
             Debug.Log("Detected: " + hitInfo.name);
             rb.velocity = Vector2.zero;

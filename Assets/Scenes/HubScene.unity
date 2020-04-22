@@ -156,7 +156,7 @@ GameObject:
   - component: {fileID: 196069333}
   m_Layer: 0
   m_Name: LevelArea
-  m_TagString: Untagged
+  m_TagString: LevelArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2759,6 +2759,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2023197335925683689, guid: 3d77523ac00ac6c4fbeb7f658cd492ec,
+        type: 3}
+      propertyPath: playerHealthBar
+      value: 
+      objectReference: {fileID: 1579599435}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d77523ac00ac6c4fbeb7f658cd492ec, type: 3}
 --- !u!1 &1233774818
@@ -5175,20 +5180,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1207789139}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1689234057
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1689234056}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87fc92c61ab9f834092b7db20d61c367, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  playerHealthBar: {fileID: 1579599435}
 --- !u!114 &1689234063
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5903,6 +5894,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: -9.14661
+      objectReference: {fileID: 0}
+    - target: {fileID: 3430806809137812561, guid: 892f1245f3c649a4aabe2afa0cd26cea,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -15.109912
       objectReference: {fileID: 0}
     - target: {fileID: 3430806810591810668, guid: 892f1245f3c649a4aabe2afa0cd26cea,
         type: 3}
