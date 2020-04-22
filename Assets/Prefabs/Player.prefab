@@ -320,8 +320,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c1b8e93a8f433d4c92af88353f25724, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amountOfJumps: 2
-  movementSpeed: 9
   jumpForce: 21
   groundCheckRadius: 0.3
   wallCheckDistance: 0.65
@@ -365,7 +363,6 @@ MonoBehaviour:
   combatEnabled: 1
   inputTimer: 0.2
   attack1Radius: 0.8
-  attack1Damage: 20
   attack1HitBoxPos: {fileID: 2011612969481061823}
   whatIsDamageable:
     serializedVersion: 2
@@ -389,4 +386,9 @@ MonoBehaviour:
   maxHealth: 100
   playerRangedDamage: 20
   playerRangedSpeed: 20
+  defence: 0
+  numberOfJumps: 2
+  playerDamage: 20
+  movementSpeed: 10
+  currentHealth: 100
   playerHealthBar: {fileID: 0}

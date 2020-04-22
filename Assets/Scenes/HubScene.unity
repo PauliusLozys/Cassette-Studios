@@ -2850,14 +2850,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1529623779, guid: 3d77523ac00ac6c4fbeb7f658cd492ec, type: 3}
-      propertyPath: whatIsInteractable.m_Bits
-      value: 4096
-      objectReference: {fileID: 0}
-    - target: {fileID: 1529623780, guid: 3d77523ac00ac6c4fbeb7f658cd492ec, type: 3}
-      propertyPath: attack1Damage
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 2011612969524986321, guid: 3d77523ac00ac6c4fbeb7f658cd492ec,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5340,27 +5332,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1207789139}
   m_PrefabAsset: {fileID: 0}
-
---- !u!114 &1689234057
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1689234056}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87fc92c61ab9f834092b7db20d61c367, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  defence: 0
-  numberOfJumps: 2
-  playerDamage: 20
-  movementSpeed: 10
-  currentHealth: 0
-  playerHealthBar: {fileID: 1579599435}
-
 --- !u!114 &1689234063
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6059,12 +6030,12 @@ PrefabInstance:
     - target: {fileID: 3430806808957863195, guid: 892f1245f3c649a4aabe2afa0cd26cea,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.5526524
+      value: -6.554701
       objectReference: {fileID: 0}
     - target: {fileID: 3430806808957863195, guid: 892f1245f3c649a4aabe2afa0cd26cea,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -15.111793
+      value: -15.111792
       objectReference: {fileID: 0}
     - target: {fileID: 3430806809137812560, guid: 892f1245f3c649a4aabe2afa0cd26cea,
         type: 3}

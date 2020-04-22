@@ -2986,10 +2986,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1529623779, guid: 3d77523ac00ac6c4fbeb7f658cd492ec, type: 3}
-      propertyPath: whatIsInteractable.m_Bits
-      value: 4096
-      objectReference: {fileID: 0}
     - target: {fileID: 2011612969524986321, guid: 3d77523ac00ac6c4fbeb7f658cd492ec,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3050,6 +3046,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2023197335925683689, guid: 3d77523ac00ac6c4fbeb7f658cd492ec,
+        type: 3}
+      propertyPath: playerHealthBar
+      value: 
+      objectReference: {fileID: 1174236435}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d77523ac00ac6c4fbeb7f658cd492ec, type: 3}
 --- !u!4 &329968532 stripped
@@ -3058,31 +3059,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 329968531}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &329968533 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2011612969524986322, guid: 3d77523ac00ac6c4fbeb7f658cd492ec,
-    type: 3}
-  m_PrefabInstance: {fileID: 329968531}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &329968535
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 329968533}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87fc92c61ab9f834092b7db20d61c367, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  defence: 0
-  numberOfJumps: 2
-  playerDamage: 20
-  movementSpeed: 10
-  currentHealth: 0
-  playerHealthBar: {fileID: 1174236435}
 --- !u!1 &343548800
 GameObject:
   m_ObjectHideFlags: 0
@@ -3095,7 +3071,7 @@ GameObject:
   - component: {fileID: 343548801}
   m_Layer: 0
   m_Name: LevelArea
-  m_TagString: Untagged
+  m_TagString: LevelArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4252,7 +4228,7 @@ PrefabInstance:
     - target: {fileID: 3430806808957863195, guid: 892f1245f3c649a4aabe2afa0cd26cea,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -20.923319
+      value: -26.3164
       objectReference: {fileID: 0}
     - target: {fileID: 3430806809137812560, guid: 892f1245f3c649a4aabe2afa0cd26cea,
         type: 3}

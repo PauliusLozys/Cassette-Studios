@@ -1779,36 +1779,6 @@ PrefabInstance:
       objectReference: {fileID: 1038443216}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d77523ac00ac6c4fbeb7f658cd492ec, type: 3}
---- !u!1 &932842140 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2011612969524986322, guid: 3d77523ac00ac6c4fbeb7f658cd492ec,
-    type: 3}
-  m_PrefabInstance: {fileID: 932842139}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &932842141
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 932842140}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87fc92c61ab9f834092b7db20d61c367, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-
-  playerRangedDamage: 20
-  playerRangedSpeed: 20
-
-  defence: 10
-  numberOfJumps: 2
-  playerDamage: 20
-  movementSpeed: 10
-  currentHealth: 100
-
-  playerHealthBar: {fileID: 1038443216}
 --- !u!1 &959585782
 GameObject:
   m_ObjectHideFlags: 0
