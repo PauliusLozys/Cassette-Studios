@@ -53,25 +53,25 @@ public class UI_ShopDefence : MonoBehaviour
         {
             default:
             case Item.DefenceStat.ArmourUpgrade:
-                if (playerStats.GetPlayerDefence() == playerStats.GetStatusCaps(stat))
+                if (playerStats.GetPlayerDefence() >= playerStats.GetStatusCaps(stat))
                     return "Maximum limit reaced";
                 else
                     return $"Current defence {playerStats.GetPlayerDefence()}/{playerStats.GetStatusCaps(stat)}";
 
             case Item.DefenceStat.HealthUpgrade:
-                if (playerStats.GetPlayerMaxHealth() == playerStats.GetStatusCaps(stat))
+                if (playerStats.GetPlayerMaxHealth() >= playerStats.GetStatusCaps(stat))
                     return "Maximum limit reaced";
                 else
                     return $"Current maximum HP {playerStats.GetPlayerMaxHealth()}/{playerStats.GetStatusCaps(stat)}";
 
             case Item.DefenceStat.AgilityUpgrade:
-                if (playerStats.GetPlayerMovementSpeed() == playerStats.GetStatusCaps(stat))
+                if (playerStats.GetPlayerMovementSpeed() >= playerStats.GetStatusCaps(stat))
                     return "Maximum limit reaced";
                 else
                     return $"Current movement speed {playerStats.GetPlayerMovementSpeed()}/{playerStats.GetStatusCaps(stat)}";
 
             case Item.DefenceStat.JumpingUpgrade:
-                if (playerStats.GetPlayerNumberOfJumps() == playerStats.GetStatusCaps(stat))
+                if (playerStats.GetPlayerNumberOfJumps() >= playerStats.GetStatusCaps(stat))
                     return "Maximum limit reaced";
                 else
                     return $"Current number of jumps {playerStats.GetPlayerNumberOfJumps()}/{playerStats.GetStatusCaps(stat)}";

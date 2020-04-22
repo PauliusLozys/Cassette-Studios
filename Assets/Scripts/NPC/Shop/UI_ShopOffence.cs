@@ -47,16 +47,15 @@ public class UI_ShopOffence : MonoBehaviour
     public string GetInfo(Item.OffenceStat stat)
     {
         switch (stat)
-        {
-            
+        {   
             default:
             case Item.OffenceStat.WeaponUpgrade:
-                if (playerStats.GetPlayerDamage() == playerStats.GetStatusCaps(stat))
+                if (playerStats.GetPlayerDamage() >= playerStats.GetStatusCaps(stat))
                     return "Maximum limit reaced";
                 else
                     return $"Current weapon damage {playerStats.GetPlayerDamage()}/{playerStats.GetStatusCaps(stat)}";
             case Item.OffenceStat.RangedUpgrade:
-                if (playerStats.GetPlayerRangedDamage() == playerStats.GetStatusCaps(stat))
+                if (playerStats.GetPlayerRangedDamage() >= playerStats.GetStatusCaps(stat))
                     return "Maximum limit reaced";
                 else
                     return $"Current ranged damage {playerStats.GetPlayerRangedDamage()}/{playerStats.GetStatusCaps(stat)}";
@@ -75,7 +74,6 @@ public class UI_ShopOffence : MonoBehaviour
                     list[itemIndex].Find("currentStats").GetComponent<TextMeshProUGUI>().SetText(GetInfo(stat));
                 else
                     list[itemIndex].Find("currentStats").GetComponent<TextMeshProUGUI>().SetText("Maximum limit reaced");
-
             }
         }
         else

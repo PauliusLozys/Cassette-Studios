@@ -91,7 +91,7 @@ public class PlayerStats : MonoBehaviour
             case Item.OffenceStat.WeaponUpgrade:
                 return 50;
             case Item.OffenceStat.RangedUpgrade:
-                return 40;
+                return 50;
         }
     }
 

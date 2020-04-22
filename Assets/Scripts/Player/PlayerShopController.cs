@@ -93,28 +93,6 @@ public class PlayerShopController : MonoBehaviour, IShopCustomer
         // Check with gold, when we have it
         return true;
     }
-
-    public void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Interactable"))
-        {
-            currentInteractableObject = collision.GetComponent<Interactable>();
-            currentInteractableObject.showPopup();
-        }
-    }
-    public void OnTriggerExit2D(Collider2D collision)
-    {
-        if (currentInteractableObject != null)
-        {
-            defenceShop.Hide();
-            offenceShop.Hide();
-            IsShopOpen = false;
-            playerCombat.SetCombat(true);
-            currentInteractableObject.hidePopup();
-            currentInteractableObject = null;
-        }
-    }
-
     public bool IsStatusCapReaced(Item.DefenceStat stat)
     {
         switch (stat)
@@ -149,7 +127,31 @@ public class PlayerShopController : MonoBehaviour, IShopCustomer
                 if (playerStats.GetPlayerDamage() >= playerStats.GetStatusCaps(stat))
                     return true;
                 break;
+            case Item.OffenceStat.RangedUpgrade:
+                if (playerStats.GetPlayerRangedDamage() >= playerStats.GetStatusCaps(stat))
+                    return true;
+                break;
         }
         return false;
+    }
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Interactable"))
+        {
+            currentInteractableObject = collision.GetComponent<Interactable>();
+            currentInteractableObject.showPopup();
+        }
+    }
+    public void OnTriggerExit2D(Collider2D collision)
+    {
+        if (currentInteractableObject != null)
+        {
+            defenceShop.Hide();
+            offenceShop.Hide();
+            IsShopOpen = false;
+            playerCombat.SetCombat(true);
+            currentInteractableObject.hidePopup();
+            currentInteractableObject = null;
+        }
     }
 }
