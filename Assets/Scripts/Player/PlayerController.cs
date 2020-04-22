@@ -13,8 +13,9 @@ public class PlayerController : MonoBehaviour
     private float dashTimeLeft;
     private float lastImageXpos;
     private float lastDash = -100;
+    //private float movementSpeed = 10.0f;
 
-
+    //private int amountOfJumps = 1;
     private int amountOfJumpsLeft;
     private int facingDirection = 1;
     private int lastWallJumpDirection;
@@ -38,14 +39,15 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D rb;
     private Animator anim;
+    private PlayerStats playerStats;
 
     private Vector2 ledgePosBot;
     private Vector2 ledgePos1;
     private Vector2 ledgePos2;
 
-    public int amountOfJumps = 1;
+    
 
-    public float movementSpeed = 10.0f;
+    
     public float jumpForce = 16.0f;
     public float groundCheckRadius;
     public float wallCheckDistance;
@@ -81,9 +83,10 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        playerStats = GetComponent<PlayerStats>();
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        amountOfJumpsLeft = amountOfJumps;
+        amountOfJumpsLeft = playerStats.GetPlayerNumberOfJumps();
         wallHopDirection.Normalize();
         wallJumpDirection.Normalize();
     }
@@ -178,7 +181,7 @@ public class PlayerController : MonoBehaviour
     {
         if(isGrounded && rb.velocity.y <= 0.01f)
         {
-            amountOfJumpsLeft = amountOfJumps;
+            amountOfJumpsLeft = playerStats.GetPlayerNumberOfJumps();
         }
 
         if (isTouchingWall)
@@ -375,7 +378,7 @@ public class PlayerController : MonoBehaviour
         {
             rb.velocity = new Vector2(rb.velocity.x, 0.0f);
             isWallSliding = false;
-            amountOfJumpsLeft = amountOfJumps;
+            amountOfJumpsLeft = playerStats.GetPlayerNumberOfJumps();
             amountOfJumpsLeft--;
             Vector2 forceToAdd = new Vector2(wallJumpForce * wallJumpDirection.x * movementInputDirection, wallJumpForce * wallJumpDirection.y);
             rb.AddForce(forceToAdd, ForceMode2D.Impulse);
@@ -401,7 +404,7 @@ public class PlayerController : MonoBehaviour
         }
         else if(canMove)
         {
-            rb.velocity = new Vector2(movementSpeed * movementInputDirection, rb.velocity.y);
+            rb.velocity = new Vector2(playerStats.GetPlayerMovementSpeed() * movementInputDirection, rb.velocity.y);
         }
         
 
