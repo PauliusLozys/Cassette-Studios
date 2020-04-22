@@ -6,8 +6,8 @@ public class Interactable : MonoBehaviour
 {
     public enum ShopType
     {
-        WeaponShop,
-        StatusShop
+        DefenceShop,
+        OffenceShop
     }
     public Transform popup;
     public ShopType shopType;

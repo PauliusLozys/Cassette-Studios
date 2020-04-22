@@ -1613,6 +1613,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  defence: 10
+  numberOfJumps: 2
+  playerDamage: 20
+  movementSpeed: 10
+  currentHealth: 100
   playerHealthBar: {fileID: 1038443216}
 --- !u!1 &959585782
 GameObject:
