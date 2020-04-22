@@ -18,5 +18,8 @@ public class GameAssets : MonoBehaviour
     public Sprite WeaponIconSprite;
     public Sprite ArmourIconSprite;
     public Sprite HealthIconSprite;
+    public Sprite RangedIconSprite;
+    public Sprite AgilityIconSprite;
+    public Sprite JumpingIconSprite;
 
 }

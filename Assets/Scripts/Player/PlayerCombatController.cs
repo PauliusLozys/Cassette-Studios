@@ -6,7 +6,7 @@ public class PlayerCombatController : MonoBehaviour
     [SerializeField]
     private bool combatEnabled;
     [SerializeField]
-    private float inputTimer, attack1Radius, attack1Damage;
+    private float inputTimer, attack1Radius;
     [SerializeField]
     private Transform attack1HitBoxPos;
     [SerializeField]
@@ -17,16 +17,22 @@ public class PlayerCombatController : MonoBehaviour
     private float lastInputTime = Mathf.NegativeInfinity;
 
     private float[] attackDetails = new float[2];
+    public float rangedAttackDamage = 20;
 
     private Animator anim;
+    public Transform firePoint;
+    public GameObject projectilePrefab;
 
     private PlayerController PC;
+
+    private PlayerStats playerStats;
 
     private void Start()
     {
         anim = GetComponent<Animator>();
         anim.SetBool("canAttack", combatEnabled);
         PC = GetComponent<PlayerController>();
+        playerStats = GetComponent<PlayerStats>();
     }
 
     private void Update()
@@ -49,6 +55,18 @@ public class PlayerCombatController : MonoBehaviour
                 lastInputTime = Time.time;
             }
         }
+
+        if (Input.GetButtonDown("Fire1"))
+        {
+            Shoot();
+        }
+    }
+
+    void Shoot() //shooting logic
+    {
+        Debug.Log("Ranged attack");
+
+        Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
     }
 
     private void CheckAttacks()
@@ -78,12 +96,13 @@ public class PlayerCombatController : MonoBehaviour
     {
         Collider2D[] detectedObjects = Physics2D.OverlapCircleAll(attack1HitBoxPos.position, attack1Radius, whatIsDamageable);
 
-        attackDetails[0] = attack1Damage;
+        attackDetails[0] = playerStats.GetPlayerDamage();
         attackDetails[1] = transform.position.x;
         
         foreach (var  collider in detectedObjects)
         {
-            collider.GetComponent<EnemyStats>().DecreaseHealth(attack1Damage);
+
+            collider.GetComponent<EnemyStats>().DecreaseHealth(playerStats.GetPlayerDamage());
         }
     }
 
