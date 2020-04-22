@@ -32,24 +32,13 @@ public class PlayerStats : MonoBehaviour
     public PlayerHealthBar playerHealthBar;
 
 
-    public float GetPlayerRangedDamage() => playerRangedDamage;
-    public float GetPlayerRangedSpeed() => playerRangedSpeed;
-
-    public void SetPlayerRangedDamage(float value)
-    {
-        playerRangedDamage = value;
-    }
-    public void SetPlayerRangedSpeed(float value)
-    {
-        playerRangedSpeed = value;
-    }
-
-
     public int GetPlayerMaxHealth() => maxHealth;
     public int GetPlayerDefence() => defence;
     public int GetPlayerNumberOfJumps() => numberOfJumps;
     public float GetPlayerDamage() => playerDamage;
     public float GetPlayerMovementSpeed () => movementSpeed;
+    public float GetPlayerRangedDamage() => playerRangedDamage;
+    public float GetPlayerRangedSpeed() => playerRangedSpeed;
 
     public void SetPlayerMaxHealth(int value)
     {
@@ -71,7 +60,14 @@ public class PlayerStats : MonoBehaviour
     {
         movementSpeed = value;
     }
-
+    public void SetPlayerRangedDamage(float value)
+    {
+        playerRangedDamage = value;
+    }
+    public void SetPlayerRangedSpeed(float value)
+    {
+        playerRangedSpeed = value;
+    }
     public float GetStatusCaps(Item.DefenceStat stat)
     {
         switch (stat)
@@ -93,7 +89,9 @@ public class PlayerStats : MonoBehaviour
         {
             default:
             case Item.OffenceStat.WeaponUpgrade:
-                return 50;      
+                return 50;
+            case Item.OffenceStat.RangedUpgrade:
+                return 40;
         }
     }
 

@@ -55,10 +55,14 @@ public class PlayerShopController : MonoBehaviour, IShopCustomer
         Debug.Log($"Bought offencsive upgrade");
         switch (stat)
         {
+            
             default:
             case Item.OffenceStat.WeaponUpgrade:
                 playerStats.SetPlayerDamage(playerStats.GetPlayerDamage() + 10f);
-               break;
+                break;
+            case Item.OffenceStat.RangedUpgrade:
+                playerStats.SetPlayerRangedDamage(playerStats.GetPlayerRangedDamage() + 10f);
+                break;
         }
     }
 
@@ -75,7 +79,7 @@ public class PlayerShopController : MonoBehaviour, IShopCustomer
                 playerStats.SetPlayerMaxHealth(playerStats.GetPlayerMaxHealth() + 5);
                 break;
             case Item.DefenceStat.AgilityUpgrade:
-                playerStats.SetPlayerMovementSpeed(playerStats.GetPlayerMovementSpeed() + 0.2f);
+                playerStats.SetPlayerMovementSpeed(playerStats.GetPlayerMovementSpeed() + 0.5f);
                 break;
             case Item.DefenceStat.JumpingUpgrade:
                 playerStats.SetPlayerNumberOfJumps(playerStats.GetPlayerNumberOfJumps() + 1);

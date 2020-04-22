@@ -14,7 +14,8 @@ public class Item : MonoBehaviour
 	}
 	public enum OffenceStat
 	{
-		WeaponUpgrade
+		WeaponUpgrade,
+		RangedUpgrade
 	}
 	
 	public static int GetCost(DefenceStat stat)
@@ -37,6 +38,8 @@ public class Item : MonoBehaviour
 		switch (stat)
 		{
 			default:
+			case OffenceStat.RangedUpgrade:
+				return 300;
 			case OffenceStat.WeaponUpgrade:
 				return 140;
 		}
@@ -62,9 +65,11 @@ public class Item : MonoBehaviour
 		switch (stat)
 		{
 			default:
+			case OffenceStat.RangedUpgrade:
+				return GameAssets.i.RangedIconSprite;
 			case OffenceStat.WeaponUpgrade:
 				return GameAssets.i.WeaponIconSprite;
-				
+
 		}
 	}
 }
