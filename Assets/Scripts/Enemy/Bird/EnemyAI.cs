@@ -43,6 +43,11 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {

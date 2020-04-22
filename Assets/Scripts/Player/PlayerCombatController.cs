@@ -17,8 +17,11 @@ public class PlayerCombatController : MonoBehaviour
     private float lastInputTime = Mathf.NegativeInfinity;
 
     private float[] attackDetails = new float[2];
+    public float rangedAttackDamage = 20;
 
     private Animator anim;
+    public Transform firePoint;
+    public GameObject projectilePrefab;
 
     private PlayerController PC;
 
@@ -52,6 +55,18 @@ public class PlayerCombatController : MonoBehaviour
                 lastInputTime = Time.time;
             }
         }
+
+        if (Input.GetButtonDown("Fire1"))
+        {
+            Shoot();
+        }
+    }
+
+    void Shoot() //shooting logic
+    {
+        Debug.Log("Ranged attack");
+
+        Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
     }
 
     private void CheckAttacks()
@@ -86,6 +101,7 @@ public class PlayerCombatController : MonoBehaviour
         
         foreach (var  collider in detectedObjects)
         {
+
             collider.GetComponent<EnemyStats>().DecreaseHealth(playerStats.GetPlayerDamage());
         }
     }

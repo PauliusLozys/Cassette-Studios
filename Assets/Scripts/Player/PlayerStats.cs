@@ -9,6 +9,12 @@ public class PlayerStats : MonoBehaviour
     private int maxHealth;
 
     [SerializeField]
+    private float playerRangedDamage;
+
+    [SerializeField]
+    private float playerRangedSpeed;
+    
+    [SerializeField]
     private int defence;
 
     [SerializeField]
@@ -24,6 +30,20 @@ public class PlayerStats : MonoBehaviour
     private int currentHealth;
 
     public PlayerHealthBar playerHealthBar;
+
+
+    public float GetPlayerRangedDamage() => playerRangedDamage;
+    public float GetPlayerRangedSpeed() => playerRangedSpeed;
+
+    public void SetPlayerRangedDamage(float value)
+    {
+        playerRangedDamage = value;
+    }
+    public void SetPlayerRangedSpeed(float value)
+    {
+        playerRangedSpeed = value;
+    }
+
 
     public int GetPlayerMaxHealth() => maxHealth;
     public int GetPlayerDefence() => defence;
@@ -76,6 +96,7 @@ public class PlayerStats : MonoBehaviour
                 return 50;      
         }
     }
+
 
     private void Start()
     {
