@@ -6,7 +6,7 @@ public class PlayerCombatController : MonoBehaviour
     [SerializeField]
     private bool combatEnabled;
     [SerializeField]
-    private float inputTimer, attack1Radius, attack1Damage;
+    private float inputTimer, attack1Radius;
     [SerializeField]
     private Transform attack1HitBoxPos;
     [SerializeField]
@@ -25,11 +25,14 @@ public class PlayerCombatController : MonoBehaviour
 
     private PlayerController PC;
 
+    private PlayerStats playerStats;
+
     private void Start()
     {
         anim = GetComponent<Animator>();
         anim.SetBool("canAttack", combatEnabled);
         PC = GetComponent<PlayerController>();
+        playerStats = GetComponent<PlayerStats>();
     }
 
     private void Update()
@@ -93,13 +96,13 @@ public class PlayerCombatController : MonoBehaviour
     {
         Collider2D[] detectedObjects = Physics2D.OverlapCircleAll(attack1HitBoxPos.position, attack1Radius, whatIsDamageable);
 
-        attackDetails[0] = attack1Damage;
+        attackDetails[0] = playerStats.GetPlayerDamage();
         attackDetails[1] = transform.position.x;
         
         foreach (var  collider in detectedObjects)
         {
-            collider.GetComponent<EnemyStats>().DecreaseHealth(attack1Damage);
-            Debug.Log(collider.gameObject.tag);
+
+            collider.GetComponent<EnemyStats>().DecreaseHealth(playerStats.GetPlayerDamage());
         }
     }
 
