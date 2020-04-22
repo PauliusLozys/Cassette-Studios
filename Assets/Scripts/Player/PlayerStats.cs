@@ -8,9 +8,28 @@ public class PlayerStats : MonoBehaviour
     [SerializeField]
     private int maxHealth;
 
+    [SerializeField]
+    private float playerRangedDamage;
+
+    [SerializeField]
+    private float playerRangedSpeed;
+
     private int currentHealth;
 
     public PlayerHealthBar playerHealthBar;
+
+    public float GetPlayerRangedDamage() => playerRangedDamage;
+    public float GetPlayerRangedSpeed() => playerRangedSpeed;
+
+    public void SetPlayerRangedDamage(float value)
+    {
+        playerRangedDamage = value;
+    }
+    public void SetPlayerRangedSpeed(float value)
+    {
+        playerRangedSpeed = value;
+    }
+
 
     private void Start()
     {
