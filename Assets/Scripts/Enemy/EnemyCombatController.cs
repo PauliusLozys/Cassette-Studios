@@ -11,6 +11,7 @@ public class EnemyCombatController : MonoBehaviour
     public float attackRange = 3f;
 
     public float attackRate = 1; // attacks per second
+    public float damage = 10f;
     float nextAttackTime = 0f;
     //private bool isAttacking = false;
 
@@ -31,6 +32,7 @@ public class EnemyCombatController : MonoBehaviour
                 //canAttack = true;
                 Attack();
                 nextAttackTime = Time.time + 1f / attackRate;
+                tmp.gameObject.SendMessage("Damage", new float[2] { damage, this.gameObject.transform.position.x });
             }
         }
     }

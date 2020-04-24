@@ -320,6 +320,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c1b8e93a8f433d4c92af88353f25724, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  knockbackDuration: 0.2
+  knockbackSpeed: {x: 10, y: 10}
   jumpForce: 21
   groundCheckRadius: 0.3
   wallCheckDistance: 0.65
