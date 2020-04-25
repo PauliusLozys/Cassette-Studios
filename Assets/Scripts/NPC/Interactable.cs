@@ -4,15 +4,8 @@ using UnityEngine;
 
 public class Interactable : MonoBehaviour
 {
-    public enum ShopType
-    {
-        DefenceShop,
-        OffenceShop
-    }
     public Transform popup;
-    public ShopType shopType;
     private Transform instance;
-
 
     public void showPopup()
     {
