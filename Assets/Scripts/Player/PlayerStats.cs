@@ -68,34 +68,6 @@ public class PlayerStats : MonoBehaviour
     {
         playerRangedSpeed = value;
     }
-    public float GetStatusCaps(Item.DefenceStat stat)
-    {
-        switch (stat)
-        {
-            default:
-            case Item.DefenceStat.ArmourUpgrade:
-                return 10;
-            case Item.DefenceStat.HealthUpgrade:
-                return 300;
-            case Item.DefenceStat.AgilityUpgrade:
-                return 15;
-            case Item.DefenceStat.JumpingUpgrade:
-                return 4;
-        }
-    }
-    public float GetStatusCaps(Item.OffenceStat stat)
-    {
-        switch (stat)
-        {
-            default:
-            case Item.OffenceStat.WeaponUpgrade:
-                return 50;
-            case Item.OffenceStat.RangedUpgrade:
-                return 50;
-        }
-    }
-
-
     private void Start()
     {
         playerHealthBar.SetMaxHealth(maxHealth);

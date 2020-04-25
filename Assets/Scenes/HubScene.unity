@@ -5377,6 +5377,7 @@ GameObject:
   - component: {fileID: 1711729258}
   - component: {fileID: 1711729261}
   - component: {fileID: 1711729260}
+  - component: {fileID: 1711729262}
   m_Layer: 12
   m_Name: DefenceNPC
   m_TagString: Interactable
@@ -5460,8 +5461,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd28f34496eeb5c42b8d923bd4ce99f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  popup: {fileID: 4078954136736086632, guid: d8a273af40426aa4a8b425b3d32230a3, type: 3}
-  shopType: 0
 --- !u!61 &1711729261
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5488,6 +5487,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.56, y: 2.56}
   m_EdgeRadius: 0
+--- !u!114 &1711729262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1711729257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7eed4ca35c30b3f4689e387eba1dad7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1740747171
 GameObject:
   m_ObjectHideFlags: 0
@@ -5544,6 +5555,7 @@ GameObject:
   - component: {fileID: 1774870074}
   - component: {fileID: 1774870077}
   - component: {fileID: 1774870076}
+  - component: {fileID: 1774870078}
   m_Layer: 12
   m_Name: OffencePC
   m_TagString: Interactable
@@ -5627,8 +5639,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd28f34496eeb5c42b8d923bd4ce99f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  popup: {fileID: 4078954136736086632, guid: d8a273af40426aa4a8b425b3d32230a3, type: 3}
-  shopType: 1
 --- !u!61 &1774870077
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5655,6 +5665,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.56, y: 2.56}
   m_EdgeRadius: 0
+--- !u!114 &1774870078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1774870073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaf41010f42dbeb4c9ceb694af4b83ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1827602038
 GameObject:
   m_ObjectHideFlags: 0
@@ -5902,8 +5924,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2096918732}
-  - component: {fileID: 2096918733}
-  - component: {fileID: 2096918734}
   m_Layer: 5
   m_Name: UI_Shop
   m_TagString: Untagged
@@ -5931,30 +5951,6 @@ RectTransform:
   m_AnchoredPosition: {x: -495, y: -254}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 1, y: 1}
---- !u!114 &2096918733
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2096918731}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f3a5aa99fee5584d96d814ecda03d80, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &2096918734
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2096918731}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a0abc56159f3e14080ded7aa8bae058, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2104886562
 GameObject:
   m_ObjectHideFlags: 0
@@ -6050,12 +6046,12 @@ PrefabInstance:
     - target: {fileID: 3430806808957863195, guid: 892f1245f3c649a4aabe2afa0cd26cea,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.554701
+      value: -6.552252
       objectReference: {fileID: 0}
     - target: {fileID: 3430806808957863195, guid: 892f1245f3c649a4aabe2afa0cd26cea,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -15.111792
+      value: -15.111794
       objectReference: {fileID: 0}
     - target: {fileID: 3430806809137812560, guid: 892f1245f3c649a4aabe2afa0cd26cea,
         type: 3}
@@ -6214,7 +6210,7 @@ PrefabInstance:
     - target: {fileID: 7659331739980226199, guid: ad941e0c14ac30f4fb36d1d73dd95a42,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7659331739980226200, guid: ad941e0c14ac30f4fb36d1d73dd95a42,
         type: 3}

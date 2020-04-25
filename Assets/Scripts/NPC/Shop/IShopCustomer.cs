@@ -1,8 +1,5 @@
 ﻿public interface IShopCustomer
 {
-    void BoughtItem(Item.DefenceStat stat);
-    void BoughtItem(Item.OffenceStat stat);
+    void BoughtItem(BaseShop.UpgradeStats stats);
     bool TrySpendGold(int goldAmount);
-    bool IsStatusCapReaced(Item.DefenceStat stat);
-    bool IsStatusCapReaced(Item.OffenceStat stat);
 }
