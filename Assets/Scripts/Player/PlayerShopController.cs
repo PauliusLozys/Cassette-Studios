@@ -84,11 +84,14 @@ public class PlayerShopController : MonoBehaviour, IShopCustomer
     {
         if (currentInteractableObject != null)
         {
+            currentInteractableObject.hidePopup();
+            currentInteractableObject = null;
+        }
+        if (currentShop != null)
+        {
             IsShopOpen = false;
             currentShop.HideShop();
             playerCombat.SetCombat(true);
-            currentInteractableObject.hidePopup();
-            currentInteractableObject = null;
             currentShop = null;
         }
     }
