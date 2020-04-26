@@ -98,7 +98,7 @@ public class PlayerCombatController : MonoBehaviour
         Collider2D[] detectedObjects = Physics2D.OverlapCircleAll(attack1HitBoxPos.position, attack1Radius, whatIsDamageable);
 
         attackDetails.damageAmount = playerStats.GetPlayerDamage();
-        attackDetails.position = transform.position;
+        //attackDetails.position = transform.position;
         
         foreach (var  collider in detectedObjects)
         {

@@ -85,8 +85,8 @@ public class Entity : MonoBehaviour
         Gizmos.DrawLine(wallCheck.position, wallCheck.position + (Vector3)(Vector2.right * facingDirection * entityData.wallCheckDistance));
         Gizmos.DrawLine(ledgeCheck.position, ledgeCheck.position + (Vector3)(Vector2.down * entityData.ledgeCheckDistance));
 
-        Gizmos.DrawWireSphere(playerCheck.position + (Vector3)aliveGO.transform.right * entityData.closeRangeActionDistance, 0.2f);
-        Gizmos.DrawWireSphere(playerCheck.position + (Vector3)aliveGO.transform.right * entityData.minAgroDistance, 0.2f);
-        Gizmos.DrawWireSphere(playerCheck.position + (Vector3)aliveGO.transform.right * entityData.maxAgroDistance, 0.2f);
+        Gizmos.DrawWireSphere(playerCheck.position + (Vector3)(Vector2.right * entityData.closeRangeActionDistance), 0.2f);
+        Gizmos.DrawWireSphere(playerCheck.position + (Vector3)(Vector2.right * entityData.minAgroDistance), 0.2f);
+        Gizmos.DrawWireSphere(playerCheck.position + (Vector3)(Vector2.right * entityData.maxAgroDistance), 0.2f);
     }
 }
