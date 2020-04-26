@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Upgrades
 {
-    public Upgrades(string upgradeName, string upgradeDescription, int basePrice, float itemCap, bool isDefenceUpgrade, Sprite sprite)
+    public Upgrades(BaseShop.UpgradeStats stat, string upgradeName, string upgradeDescription, int basePrice, float itemCap, bool isDefenceUpgrade, Sprite sprite)
     {
         UpgradeName = upgradeName;
         UpgradeDescription = upgradeDescription;
@@ -12,6 +12,7 @@ public class Upgrades
         ItemCap = itemCap;
         IsDefenceUpgrade = isDefenceUpgrade;
         Sprite = sprite;
+        Stat = stat;
     }
 
     public string UpgradeName { get;}
@@ -21,4 +22,5 @@ public class Upgrades
     public float ItemCap { get;}
     public bool IsDefenceUpgrade { get;}
     public Sprite Sprite { get;}
+    public BaseShop.UpgradeStats Stat { get; set; }
 }

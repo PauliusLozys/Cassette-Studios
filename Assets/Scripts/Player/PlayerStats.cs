@@ -113,7 +113,7 @@ public class PlayerStats : MonoBehaviour
     public void DecreaseHealth(int damage)
     {
         // Damage reduction
-        var newDamage = damage - Math.Abs(defence * 0.75f);
+        var newDamage = damage - (defence * 0.75f);
         
         currentHealth -= (int)newDamage;
         Debug.Log(currentHealth);

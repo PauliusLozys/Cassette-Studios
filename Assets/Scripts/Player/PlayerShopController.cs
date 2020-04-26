@@ -30,7 +30,7 @@ public class PlayerShopController : MonoBehaviour, IShopCustomer
             IsShopOpen = true;
             playerCombat.SetCombat(false);
 
-            currentShop.ShopShop(this);
+            currentShop.ShowShop(this);
         }
         else if(Input.GetKeyDown(KeyCode.Q) && IsShopOpen)
         {
