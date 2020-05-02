@@ -12,14 +12,15 @@ public class SpawningPlace : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log($"Current level: {SceneManager.GetActiveScene().name}");
         if (!LevelManager.LeftOnLeft && IsLeft)
         {
-            Debug.Log("Player entered on Left");
+            //Debug.Log("Player entered on Left");
             player.position = transform.position;
         }
         else if (LevelManager.LeftOnLeft && !IsLeft)
         {
-            Debug.Log("Player entered on Right");
+            //Debug.Log("Player entered on Right");
             player.position = transform.position;
         }
     }
@@ -33,17 +34,22 @@ public class SpawningPlace : MonoBehaviour
                 Debug.Log("Player left on left");
                 LevelManager.LeftOnLeft = true;
                 // Go to the left scene
-
-                if(SceneManager.GetActiveScene().name != "Level 1")
-                    SceneManager.LoadScene("Level 1");
+                if(LevelManager.currentLevelData.Previous != null)
+                {
+                    LevelManager.SetLeftLevelAsCurrent();
+                    SceneManager.LoadScene(LevelManager.currentLevelData.Value.LevelIndex);
+                }
             }
             else
             {
                 Debug.Log("Player left on right");
                 LevelManager.LeftOnLeft = false;
                 // Go to the right scene
-                if (SceneManager.GetActiveScene().name != "Level 2")
-                    SceneManager.LoadScene("Level 2");
+                if (LevelManager.currentLevelData.Next != null)
+                {
+                    LevelManager.SetRightLevelAsCurrent();
+                    SceneManager.LoadScene(LevelManager.currentLevelData.Value.LevelIndex);
+                }
             }
         }
 
