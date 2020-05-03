@@ -9,6 +9,7 @@ TagManager:
   - Interactable
   - LevelArea
   - Coins
+  - Chest
   layers:
   - Default
   - TransparentFX

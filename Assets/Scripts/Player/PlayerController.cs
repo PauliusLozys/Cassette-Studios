@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-
+    private Interactable currentInteractableObject = null;
     private float movementInputDirection;
     private float jumpTimer;
     private float turnTimer;
@@ -486,5 +486,22 @@ public class PlayerController : MonoBehaviour
         }
 
         yield return 0;
+    }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Interactable"))
+        {
+            currentInteractableObject = collision.GetComponent<Interactable>();
+            currentInteractableObject.showPopup();
+        }
+    }
+    public void OnTriggerExit2D(Collider2D collision)
+    {
+        if (currentInteractableObject != null)
+        {
+            currentInteractableObject.hidePopup();
+            currentInteractableObject = null;
+        }
     }
 }
