@@ -8,6 +8,7 @@ TagManager:
   - Obsticle
   - Interactable
   - LevelArea
+  - Coins
   layers:
   - Default
   - TransparentFX

@@ -43,7 +43,7 @@ public class PlayerShopController : MonoBehaviour, IShopCustomer
     public bool TrySpendGold(int goldAmount)
     {
         // Check with gold, when we have it
-        return true;
+        return playerStats.CheckPurchase(goldAmount);
     }
     public void BoughtItem(BaseShop.UpgradeStats stats)
     {

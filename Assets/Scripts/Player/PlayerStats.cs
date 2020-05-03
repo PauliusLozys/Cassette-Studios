@@ -3,9 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.VR;
+using TMPro;
 
 public class PlayerStats : MonoBehaviour
 {
+    public TextMeshProUGUI text;
+    [SerializeField]
+    private int money;
 
     [SerializeField]
     private int maxHealth;
@@ -33,7 +37,7 @@ public class PlayerStats : MonoBehaviour
 
     public PlayerHealthBar playerHealthBar;
 
-
+    public int GetPlayerMoney() => money;
     public int GetPlayerMaxHealth() => maxHealth;
     public int GetPlayerDefence() => defence;
     public int GetPlayerNumberOfJumps() => numberOfJumps;
@@ -41,6 +45,11 @@ public class PlayerStats : MonoBehaviour
     public float GetPlayerMovementSpeed () => movementSpeed;
     public float GetPlayerRangedDamage() => playerRangedDamage;
     public float GetPlayerRangedSpeed() => playerRangedSpeed;
+
+    public void SetPlayerMoney(int value)
+    {
+        money = value;
+    }
 
     public void SetPlayerMaxHealth(int value)
     {
@@ -83,6 +92,8 @@ public class PlayerStats : MonoBehaviour
             defence = data.defence;
             numberOfJumps = data.numberOfJumps;
             movementSpeed = data.movementSpeed;
+            money = data.money;
+            text.text = money.ToString();
             Debug.Log("File succsessfully loaded");
         }
         else // if save file is not found, assing defaul values
@@ -104,11 +115,12 @@ public class PlayerStats : MonoBehaviour
         numberOfJumps = 1;
         movementSpeed = 10;
         currentHealth = maxHealth;
+        money = 0;
     }
 
     private void OnDestroy()
     {
-        SaveSystem.SavePlayer(maxHealth, currentHealth, defence, numberOfJumps, playerRangedDamage, playerRangedSpeed, playerDamage, movementSpeed);
+        SaveSystem.SavePlayer(maxHealth, currentHealth, defence, numberOfJumps, playerRangedDamage, playerRangedSpeed, playerDamage, movementSpeed, money);
     }
     public void DecreaseHealth(int damage)
     {
@@ -128,5 +140,28 @@ public class PlayerStats : MonoBehaviour
     {
         SetDefaultStats(); // restores original values before player save is started
         Destroy(gameObject);
+    }
+
+    public void IncreaseMoney(int amount)
+    {
+        money += amount;
+        text.text = money.ToString();
+    }
+
+    public void DecreaseMoney(int amount)
+    {
+        money -= amount;
+        text.text = money.ToString();
+    }
+
+    public bool CheckPurchase(int amount)
+    {
+        if (money - amount >= 0)
+        {
+            DecreaseMoney(amount);
+            return true;
+        }
+
+        return false;
     }
 }

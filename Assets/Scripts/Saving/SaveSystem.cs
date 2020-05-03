@@ -4,14 +4,14 @@ using UnityEngine;
 
 public static class SaveSystem
 {
-    public static void SavePlayer(int maxHealth, int currentHealth, int defence, int numberOfJumps, float playerRangedDamage, float playerRangedSpeed, float playerDamage, float movementSpeed)
+    public static void SavePlayer(int maxHealth, int currentHealth, int defence, int numberOfJumps, float playerRangedDamage, float playerRangedSpeed, float playerDamage, float movementSpeed, int money)
     {
         string filePath = $"{Application.persistentDataPath}.hashtagbringbacktherealsimonas";
         BinaryFormatter formatter = new BinaryFormatter();
 
         using (FileStream fs = new FileStream(filePath, FileMode.Create))
         {
-            PlayerData playerData = new PlayerData(maxHealth, currentHealth, defence, numberOfJumps, playerRangedDamage, playerRangedSpeed, playerDamage, movementSpeed);
+            PlayerData playerData = new PlayerData(maxHealth, currentHealth, defence, numberOfJumps, playerRangedDamage, playerRangedSpeed, playerDamage, movementSpeed, money);
             formatter.Serialize(fs, playerData);
         }
     }
