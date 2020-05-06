@@ -33,7 +33,7 @@ public static class LevelManager
         {
             levels.AddLast(new LevelData { LevelIndex = item });
         }
-        levels.AddLast(new LevelData { LevelIndex = 8 }); // Adds the testing level at the end
+        levels.AddLast(new LevelData { LevelIndex = 9 }); // Adds the testing level at the end
         currentLevelData = levels.First;
     }
     public static void SetLeftLevelAsCurrent()

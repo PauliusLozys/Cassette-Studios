@@ -39,6 +39,7 @@ public class PlayerStats : MonoBehaviour
 
     public int GetPlayerMoney() => money;
     public int GetPlayerMaxHealth() => maxHealth;
+    public int GetPlayerCurrentHealth() => currentHealth;
     public int GetPlayerDefence() => defence;
     public int GetPlayerNumberOfJumps() => numberOfJumps;
     public float GetPlayerDamage() => playerDamage;
@@ -54,6 +55,10 @@ public class PlayerStats : MonoBehaviour
     public void SetPlayerMaxHealth(int value)
     {
         maxHealth = value;
+    }
+    public void SetPlayerCurrentHealth(int value)
+    {
+        currentHealth = value;
     }
     public void SetPlayerDefence(int value)
     {
@@ -105,7 +110,7 @@ public class PlayerStats : MonoBehaviour
         playerHealthBar.SetHealth(currentHealth);
     }
 
-    private void SetDefaultStats()
+    public void SetDefaultStats()
     {
         maxHealth = 100;
         playerDamage = 10;
@@ -152,16 +157,5 @@ public class PlayerStats : MonoBehaviour
     {
         money -= amount;
         text.text = money.ToString();
-    }
-
-    public bool CheckPurchase(int amount)
-    {
-        if (money - amount >= 0)
-        {
-            DecreaseMoney(amount);
-            return true;
-        }
-
-        return false;
     }
 }

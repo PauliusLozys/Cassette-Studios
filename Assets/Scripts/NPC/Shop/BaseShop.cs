@@ -126,6 +126,7 @@ public abstract class BaseShop : MonoBehaviour
         else
         {
             buttons[shopIndex].Find("currentStats").GetComponent<TextMeshProUGUI>().SetText("Insufficient funds");
+            buttons[shopIndex].Find("background").GetComponent<Image>().color = Color.red;
         }
     }
 

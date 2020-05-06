@@ -9,7 +9,6 @@ public class PlayerShopController : MonoBehaviour, IShopCustomer
     private PlayerCombatController playerCombat;
     private PlayerStats playerStats;
 
-    private Interactable currentInteractableObject = null;
     private BaseShop currentShop = null;
     private bool IsShopOpen = false;
 
@@ -39,11 +38,23 @@ public class PlayerShopController : MonoBehaviour, IShopCustomer
             IsShopOpen = false;
             playerCombat.SetCombat(true);
         }
+        else if (Input.GetKeyDown(KeyCode.M))
+        {
+            playerStats.IncreaseMoney(10_000);
+        }
+        else if (Input.GetKeyDown(KeyCode.L))
+        {
+            playerStats.SetDefaultStats();
+        }
     }
     public bool TrySpendGold(int goldAmount)
     {
-        // Check with gold, when we have it
-        return playerStats.CheckPurchase(goldAmount);
+        if (playerStats.GetPlayerMoney() - goldAmount >= 0)
+        {
+            playerStats.DecreaseMoney(goldAmount);
+            return true;
+        }
+        return false;
     }
     public void BoughtItem(BaseShop.UpgradeStats stats)
     {
@@ -55,6 +66,7 @@ public class PlayerShopController : MonoBehaviour, IShopCustomer
                 break;
             case BaseShop.UpgradeStats.HealthUpgrade:
                 playerStats.SetPlayerMaxHealth(playerStats.GetPlayerMaxHealth() + 5);
+                playerStats.SetPlayerCurrentHealth(playerStats.GetPlayerCurrentHealth() + 5);
                 break;
             case BaseShop.UpgradeStats.AgilityUpgrade:
                 playerStats.SetPlayerMovementSpeed(playerStats.GetPlayerMovementSpeed() + 0.5f);
@@ -75,18 +87,11 @@ public class PlayerShopController : MonoBehaviour, IShopCustomer
     {
         if (collision.CompareTag("Interactable"))
         {
-            currentInteractableObject = collision.GetComponent<Interactable>();
-            currentShop = collision.GetComponent<BaseShop>();
-            currentInteractableObject.showPopup();    
+            currentShop = collision.GetComponent<BaseShop>(); 
         }
     }
     public void OnTriggerExit2D(Collider2D collision)
     {
-        if (currentInteractableObject != null)
-        {
-            currentInteractableObject.hidePopup();
-            currentInteractableObject = null;
-        }
         if (currentShop != null)
         {
             IsShopOpen = false;
@@ -95,6 +100,4 @@ public class PlayerShopController : MonoBehaviour, IShopCustomer
             currentShop = null;
         }
     }
-
-    
 }
