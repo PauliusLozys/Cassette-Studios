@@ -11,12 +11,15 @@ public class EnemyStats : MonoBehaviour
     private float currentHealth;
 
     public EnemyHealthBar HealthBar;
+
+    private PlayerStats playerStats;
     //private Animator anim; 
 
     private void Start()
     {
         HealthBar.SetMaxHealth(maxHealth);
         currentHealth = maxHealth;
+        playerStats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
         //anim = GetComponent<Animator>();
     }
 
@@ -34,6 +37,13 @@ public class EnemyStats : MonoBehaviour
 
     private void Die()
     {
+        // Get that fat cash
+        int random = Random.Range(1, 100);
+        if (random > 35)
+        {
+            playerStats.IncreaseMoney(random / 2);
+        }
+        
         Destroy(gameObject);
     }
 

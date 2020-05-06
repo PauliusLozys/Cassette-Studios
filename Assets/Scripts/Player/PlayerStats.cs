@@ -1,9 +1,15 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VR;
+using TMPro;
 
 public class PlayerStats : MonoBehaviour
 {
+    public TextMeshProUGUI text;
+    [SerializeField]
+    private int money;
 
     [SerializeField]
     private int maxHealth;
@@ -31,8 +37,9 @@ public class PlayerStats : MonoBehaviour
 
     public PlayerHealthBar playerHealthBar;
 
-
+    public int GetPlayerMoney() => money;
     public int GetPlayerMaxHealth() => maxHealth;
+    public int GetPlayerCurrentHealth() => currentHealth;
     public int GetPlayerDefence() => defence;
     public int GetPlayerNumberOfJumps() => numberOfJumps;
     public float GetPlayerDamage() => playerDamage;
@@ -40,9 +47,18 @@ public class PlayerStats : MonoBehaviour
     public float GetPlayerRangedDamage() => playerRangedDamage;
     public float GetPlayerRangedSpeed() => playerRangedSpeed;
 
+    public void SetPlayerMoney(int value)
+    {
+        money = value;
+    }
+
     public void SetPlayerMaxHealth(int value)
     {
         maxHealth = value;
+    }
+    public void SetPlayerCurrentHealth(int value)
+    {
+        currentHealth = value;
     }
     public void SetPlayerDefence(int value)
     {
@@ -68,40 +84,49 @@ public class PlayerStats : MonoBehaviour
     {
         playerRangedSpeed = value;
     }
-    public float GetStatusCaps(Item.DefenceStat stat)
-    {
-        switch (stat)
-        {
-            default:
-            case Item.DefenceStat.ArmourUpgrade:
-                return 10;
-            case Item.DefenceStat.HealthUpgrade:
-                return 300;
-            case Item.DefenceStat.AgilityUpgrade:
-                return 15;
-            case Item.DefenceStat.JumpingUpgrade:
-                return 4;
-        }
-    }
-    public float GetStatusCaps(Item.OffenceStat stat)
-    {
-        switch (stat)
-        {
-            default:
-            case Item.OffenceStat.WeaponUpgrade:
-                return 50;
-            case Item.OffenceStat.RangedUpgrade:
-                return 50;
-        }
-    }
-
-
     private void Start()
     {
+        PlayerData data = SaveSystem.LoadSave();
+        if(data != null) // If save file exists
+        {
+            maxHealth = data.maxHealth;
+            currentHealth = data.currentHealth;
+            playerDamage = data.playerDamage;
+            playerRangedDamage = data.playerRangedDamage;
+            playerRangedSpeed = data.playerRangedSpeed;
+            defence = data.defence;
+            numberOfJumps = data.numberOfJumps;
+            movementSpeed = data.movementSpeed;
+            money = data.money;
+            text.text = money.ToString();
+            Debug.Log("File succsessfully loaded");
+        }
+        else // if save file is not found, assing defaul values
+        {
+            SetDefaultStats();
+        }
+
         playerHealthBar.SetMaxHealth(maxHealth);
-        currentHealth = maxHealth;
+        playerHealthBar.SetHealth(currentHealth);
     }
 
+    public void SetDefaultStats()
+    {
+        maxHealth = 100;
+        playerDamage = 10;
+        playerRangedDamage = 10;
+        playerRangedSpeed = 10;
+        defence = 0;
+        numberOfJumps = 1;
+        movementSpeed = 10;
+        currentHealth = maxHealth;
+        money = 0;
+    }
+
+    private void OnDestroy()
+    {
+        SaveSystem.SavePlayer(maxHealth, currentHealth, defence, numberOfJumps, playerRangedDamage, playerRangedSpeed, playerDamage, movementSpeed, money);
+    }
     public void DecreaseHealth(int damage)
     {
         // Damage reduction
@@ -118,6 +143,19 @@ public class PlayerStats : MonoBehaviour
 
     private void Die()
     {
+        SetDefaultStats(); // restores original values before player save is started
         Destroy(gameObject);
+    }
+
+    public void IncreaseMoney(int amount)
+    {
+        money += amount;
+        text.text = money.ToString();
+    }
+
+    public void DecreaseMoney(int amount)
+    {
+        money -= amount;
+        text.text = money.ToString();
     }
 }
