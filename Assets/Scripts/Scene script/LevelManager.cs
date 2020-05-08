@@ -1,9 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
-using System;
 
+[System.Serializable]
 public enum SpawnType
 {
     BirdEnemy,
@@ -12,6 +11,7 @@ public enum SpawnType
     GoldCoin,
     GoldChest
 }
+[System.Serializable]
 public class LevelData
 {
     /// <summary>
@@ -25,6 +25,33 @@ public class LevelData
     /// A list of all spawnable types in a level
     /// </summary>
     public List<(Vector2 transform, bool IsDead, SpawnType type)> spawnambles { get; set; }
+}
+[System.Serializable]
+public class LevelSaveData
+{
+    public List<int> levelsIndexs = new List<int>();
+    public List<List<((float x, float y), bool, SpawnType)>> levels = new List<List<((float x, float y), bool, SpawnType)>>();
+    public int currentNode;
+
+    public LevelSaveData(LinkedList<LevelData> levels,LinkedListNode<LevelData> currentNode)
+    {
+      //  this.levels = levels.ToList();
+        this.currentNode = currentNode.Value.LevelIndex;
+        foreach (var item in levels)
+        {
+            levelsIndexs.Add(item.LevelIndex);
+            var tmp = new List<((float x, float y), bool, SpawnType)>();
+
+            if (item.spawnambles != null)
+                foreach (var spawn in item.spawnambles)
+                {
+                    tmp.Add(((spawn.transform.x, spawn.transform.y), spawn.IsDead, spawn.type));    
+                }
+
+            this.levels.Add(tmp);
+        }
+    }
+
 }
 
 
@@ -40,11 +67,33 @@ public static class LevelManager
 
     public static void LoadLevelData()
     {
+        levels = new LinkedList<LevelData>();
+
+        var data = SaveSystem.LoadLevels();
+        if(data != null)
+        {
+            for (int i = 0; i < data.levelsIndexs.Count; i++)
+            {
+                var tmp = new LevelData();
+                tmp.LevelIndex = data.levelsIndexs[i];
+                tmp.spawnambles = new List<(Vector2 transform, bool IsDead, SpawnType type)>();
+
+                foreach (var item in data.levels[i])
+                {
+                    tmp.spawnambles.Add((new Vector2(item.Item1.x, item.Item1.y), item.Item2, item.Item3));
+                }
+                levels.AddLast(tmp);
+            }
+            currentLevelData = levels.First; // currently for debuging
+            return;
+        }
+
+
         System.Random rand = new System.Random();
         int[] levelIndexes = new int[] { 0, 1, 2, 3, 4 }.OrderBy(x => rand.Next()).ToArray();
 
         var loadedLevels = new List<LevelData>();
-        levels = new LinkedList<LevelData>();
+        
         levels.AddFirst(new LevelData { LevelIndex = 2 }); // Adds the Dungeon entrance as first level
 
         LoadAllLevelSpawnables(loadedLevels);

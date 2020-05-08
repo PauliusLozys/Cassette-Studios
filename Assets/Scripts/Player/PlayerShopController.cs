@@ -42,10 +42,7 @@ public class PlayerShopController : MonoBehaviour, IShopCustomer
         {
             playerStats.IncreaseMoney(10_000);
         }
-        else if (Input.GetKeyDown(KeyCode.L))
-        {
-            playerStats.SetDefaultStats();
-        }
+        
     }
     public bool TrySpendGold(int goldAmount)
     {

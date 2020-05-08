@@ -146,7 +146,9 @@ public class PlayerStats : MonoBehaviour
 
     private void Die()
     {
-        SetDefaultStats(); // restores original values before player save is started
+        // Delete Level data
+        currentHealth = maxHealth;
+        SaveSystem.DeleteLevelSave();
         Destroy(gameObject);
     }
 
