@@ -9,6 +9,7 @@ public class EnemyStats : MonoBehaviour
     private float maxHealth;
 
     private float currentHealth;
+    public int SpawnedIndex = -1;
 
     public EnemyHealthBar HealthBar;
 
@@ -17,6 +18,7 @@ public class EnemyStats : MonoBehaviour
 
     private void Start()
     {
+
         HealthBar.SetMaxHealth(maxHealth);
         currentHealth = maxHealth;
         playerStats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
@@ -43,7 +45,12 @@ public class EnemyStats : MonoBehaviour
         {
             playerStats.IncreaseMoney(random / 2);
         }
-        
+
+        if(SpawnedIndex != -1)
+            LevelManager.currentLevelData.Value.spawnambles[SpawnedIndex] = (LevelManager.currentLevelData.Value.spawnambles[SpawnedIndex].transform,
+                                                                             true, 
+                                                                             LevelManager.currentLevelData.Value.spawnambles[SpawnedIndex].type);
+
         Destroy(gameObject);
     }
 

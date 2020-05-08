@@ -110,6 +110,9 @@ public class PlayerStats : MonoBehaviour
         playerHealthBar.SetHealth(currentHealth);
     }
 
+    /// <summary>
+    /// Call this function only when a new game is initiated
+    /// </summary>
     public void SetDefaultStats()
     {
         maxHealth = 100;
@@ -143,7 +146,9 @@ public class PlayerStats : MonoBehaviour
 
     private void Die()
     {
-        SetDefaultStats(); // restores original values before player save is started
+        // Delete Level data
+        currentHealth = maxHealth;
+        SaveSystem.DeleteLevelSave();
         Destroy(gameObject);
     }
 
