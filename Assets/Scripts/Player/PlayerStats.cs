@@ -110,6 +110,9 @@ public class PlayerStats : MonoBehaviour
         playerHealthBar.SetHealth(currentHealth);
     }
 
+    /// <summary>
+    /// Call this function only when a new game is initiated
+    /// </summary>
     public void SetDefaultStats()
     {
         maxHealth = 100;
