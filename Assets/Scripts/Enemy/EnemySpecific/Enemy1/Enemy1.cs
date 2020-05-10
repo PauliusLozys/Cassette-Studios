@@ -13,6 +13,7 @@ public class Enemy1 : Entity
     public E1_StunState stunState { get; private set; }
     public E1_DeadState deadState { get; private set; }
 
+
     [SerializeField]
     private D_IdleState idleStateData;
     [SerializeField]

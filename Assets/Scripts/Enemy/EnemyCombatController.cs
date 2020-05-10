@@ -13,12 +13,14 @@ public class EnemyCombatController : MonoBehaviour
     public float attackRate = 1; // attacks per second
     public float damage = 10f;
     private AttackDetails attackDetails;
+
     float nextAttackTime = 0f;
     //private bool isAttacking = false;
 
     private void Start()
     {
         anim = GetComponent<Animator>();
+
     }
 
     // Update is called once per frame
@@ -49,11 +51,12 @@ public class EnemyCombatController : MonoBehaviour
 
         attackDetails.damageAmount = damage;
         attackDetails.position = this.transform.position;
-
+        attackDetails.stunDamageAmount = 1;
         foreach (var collider in detectedObjects)
         {
 
-            collider.SendMessage("Damage", attackDetails);
+                collider.transform.SendMessage("Damage", attackDetails);
+
         }
     }
 

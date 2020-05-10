@@ -108,6 +108,7 @@ public class PlayerCombatController : MonoBehaviour
         {
 
             collider.transform.parent.SendMessage("Damage", attackDetails);
+
         }
     }
 

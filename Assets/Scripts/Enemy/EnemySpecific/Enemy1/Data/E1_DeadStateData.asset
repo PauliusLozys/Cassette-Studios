@@ -10,7 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2095f10db22a94a49a7f74d6238112f6, type: 3}
-  m_Name: E1_deadStateData
+  m_Name: E1_DeadStateData
   m_EditorClassIdentifier: 
-  deathChunkParticle: {fileID: 0}
-  deathBloodParticle: {fileID: 0}
+  deathChunkParticle: {fileID: 1962614393226834858, guid: 3d13ef1f52d189642930444f906fc622,
+    type: 3}
+  deathBloodParticle: {fileID: 5096148057906189823, guid: 4a122dcc68153794295f6953dd91521e,
+    type: 3}

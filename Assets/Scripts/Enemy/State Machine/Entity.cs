@@ -24,6 +24,7 @@ public class Entity : MonoBehaviour
     private Transform groundCheck;
     private Vector2 velocityWorkspace;
 
+    public EnemyHealthBar healthBar;
     private float currentHealth;
     public  int lastDamageDirection { get; private set; }
     private float currentStunResistance;
@@ -41,6 +42,7 @@ public class Entity : MonoBehaviour
         atsm = aliveGO.GetComponent<AnimationToStateMachine>();
         stateMachine = new FiniteStateMachine();
         currentHealth = entityData.maxHealth;
+        healthBar.SetMaxHealth(currentHealth);
         currentStunResistance = entityData.stunResistance;
     }
 
@@ -116,6 +118,7 @@ public class Entity : MonoBehaviour
     {
         lastDamageTime = Time.time;
         currentHealth -= attackDetails.damageAmount;
+        healthBar.SetHealth(currentHealth);
         currentStunResistance -= attackDetails.stunDamageAmount;
         DamageHop(entityData.damageHopSpeed);
         Instantiate(entityData.hitParticle, aliveGO.transform.position, Quaternion.Euler(0f, 0f, Random.Range(0,360f)));
