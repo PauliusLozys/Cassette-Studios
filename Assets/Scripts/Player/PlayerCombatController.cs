@@ -12,6 +12,8 @@ public class PlayerCombatController : MonoBehaviour
     private Transform attack1HitBoxPos;
     [SerializeField]
     private LayerMask whatIsDamageable;
+    [SerializeField]
+    private float stunDamageAmount = 1f;
     
     private bool gotInput, isAttacking, isFirstAttack;
 
@@ -98,12 +100,14 @@ public class PlayerCombatController : MonoBehaviour
         Collider2D[] detectedObjects = Physics2D.OverlapCircleAll(attack1HitBoxPos.position, attack1Radius, whatIsDamageable);
 
         attackDetails.damageAmount = playerStats.GetPlayerDamage();
+        attackDetails.position = this.transform.position;
+        attackDetails.stunDamageAmount = stunDamageAmount;
         //attackDetails.position = transform.position;
         
         foreach (var  collider in detectedObjects)
         {
 
-            collider.GetComponent<EnemyStats>().DecreaseHealth(playerStats.GetPlayerDamage());
+            collider.transform.parent.SendMessage("Damage", attackDetails);
         }
     }
 

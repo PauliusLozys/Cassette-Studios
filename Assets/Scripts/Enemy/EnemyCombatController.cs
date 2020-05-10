@@ -30,12 +30,9 @@ public class EnemyCombatController : MonoBehaviour
         {
             if (tmp != null)
             {
-                //canAttack = true;
-                attackDetails.damageAmount = damage;
-                attackDetails.position = this.transform.position;
+
                 Attack();
-                nextAttackTime = Time.time + 1f / attackRate;
-                tmp.gameObject.SendMessage("Damage", attackDetails);
+
             }
         }
     }
@@ -45,6 +42,19 @@ public class EnemyCombatController : MonoBehaviour
         Debug.Log("Player hit");
         anim.SetBool("canAttack", true);
         anim.SetBool("isAttacking", true);
+    }
+    public  void CheckAttackHitBox()
+    {
+        Collider2D[] detectedObjects = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, whatIsDamageable);
+
+        attackDetails.damageAmount = damage;
+        attackDetails.position = this.transform.position;
+
+        foreach (var collider in detectedObjects)
+        {
+
+            collider.SendMessage("Damage", attackDetails);
+        }
     }
 
     //void CheckAttacks()
