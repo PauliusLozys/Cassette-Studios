@@ -1428,6 +1428,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd28f34496eeb5c42b8d923bd4ce99f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  txt: 
 --- !u!61 &1711729261
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1562,6 +1563,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd28f34496eeb5c42b8d923bd4ce99f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  txt: Moshi moshi
 --- !u!61 &1774870077
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2849,12 +2851,12 @@ PrefabInstance:
     - target: {fileID: 3430806808957863195, guid: 892f1245f3c649a4aabe2afa0cd26cea,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.5533257
+      value: -6.553194
       objectReference: {fileID: 0}
     - target: {fileID: 3430806808957863195, guid: 892f1245f3c649a4aabe2afa0cd26cea,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -15.111795
+      value: -15.111794
       objectReference: {fileID: 0}
     - target: {fileID: 3430806809137812560, guid: 892f1245f3c649a4aabe2afa0cd26cea,
         type: 3}

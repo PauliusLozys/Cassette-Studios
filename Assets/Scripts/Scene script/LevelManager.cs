@@ -105,7 +105,7 @@ public static class LevelManager
         //{
         //    levels.AddLast(item);
         //}
-        levels.AddLast(new LevelData { LevelIndex = 10 }); // Adds the testing level at the end
+        levels.AddLast(new LevelData { LevelIndex = 11 }); // Adds the testing level at the end
         currentLevelData = levels.First;
     }
     public static void SetLeftLevelAsCurrent()
@@ -221,6 +221,24 @@ public static class LevelManager
                 (new Vector2(57.3f, -3.5f),false,SpawnType.GoldChest),
                 (new Vector2(60.7f, -3.65f),false,SpawnType.GoldCoin),
                 (new Vector2(61.7f, -3.65f),false,SpawnType.GoldCoin),
+            }
+        });
+
+        // Level 8 Data
+        levels.Add(new LevelData
+        {
+            LevelIndex = 10,
+            spawnambles = new List<(Vector2, bool, SpawnType)>
+            {
+                (new Vector2(-15.9f, 13.31f),false,SpawnType.GoldChest),
+                (new Vector2(-15.07f, 13.31f),false,SpawnType.GoldCoin),
+                (new Vector2(-14.27f, 13.31f),false,SpawnType.GoldCoin),
+                (new Vector2(-13.3f, 13.31f),false,SpawnType.GoldCoin),
+
+                (new Vector2(21.23f, 7.55f),false,SpawnType.StrangeEnemy),
+                (new Vector2(46f, 7.55f),false,SpawnType.StrangeEnemy),
+
+
             }
         });
 
