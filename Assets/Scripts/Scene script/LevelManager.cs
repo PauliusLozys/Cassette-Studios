@@ -125,7 +125,7 @@ public static class LevelManager
             spawnambles = new List<(Vector2, bool, SpawnType)>
             {
                 (new Vector2(-2.70f,9.5f),false,SpawnType.GoldChest),
-                (new Vector2(5.3f,-6.5f),false,SpawnType.SkeletonEnemy),
+                //(new Vector2(5.3f,-6.5f),false,SpawnType.SkeletonEnemy),
                 (new Vector2(20f,8.5f),false,SpawnType.StrangeEnemy),
             }
         });
@@ -143,7 +143,7 @@ public static class LevelManager
                 (new Vector2(13.3f,-2.7f),false,SpawnType.GoldCoin),
                 (new Vector2(14.1f,-2.7f),false,SpawnType.GoldCoin),
 
-                (new Vector2(4.3f,-5.5f),false,SpawnType.SkeletonEnemy),
+                //(new Vector2(4.3f,-5.5f),false,SpawnType.SkeletonEnemy),
                 (new Vector2(16f,-12.5f),false,SpawnType.StrangeEnemy),
             }
         });
@@ -161,8 +161,7 @@ public static class LevelManager
                 (new Vector2(17.7f,6.3f),false,SpawnType.GoldCoin), 
                 (new Vector2(-3.3f,12.4f),false,SpawnType.GoldCoin), 
 
-                (new Vector2(-1.4f,16.7f),false,SpawnType.BirdEnemy),
-                (new Vector2(3.56f,-2.47f),false,SpawnType.SkeletonEnemy),
+                //(new Vector2(3.56f,-2.47f),false,SpawnType.SkeletonEnemy),
             }
         });
 
@@ -192,7 +191,6 @@ public static class LevelManager
                 (new Vector2(-6.7f, 14.3f),false,SpawnType.GoldCoin),
                 (new Vector2(-7.7f, 14.3f),false,SpawnType.GoldCoin),
                 
-                (new Vector2(23.2f,11.7f),false,SpawnType.BirdEnemy),
                 (new Vector2(23.2f,0.5f),false,SpawnType.StrangeEnemy),
             }
         });

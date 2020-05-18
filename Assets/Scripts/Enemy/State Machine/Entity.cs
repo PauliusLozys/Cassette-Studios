@@ -25,6 +25,7 @@ public class Entity : MonoBehaviour
     private Vector2 velocityWorkspace;
 
     public EnemyHealthBar healthBar;
+    public int SpawnedIndex = -1;
     private float currentHealth;
     public  int lastDamageDirection { get; private set; }
     private float currentStunResistance;
@@ -137,6 +138,10 @@ public class Entity : MonoBehaviour
 
         if (currentHealth <= 0)
         {
+            if (SpawnedIndex != -1)
+                LevelManager.currentLevelData.Value.spawnambles[SpawnedIndex] = (LevelManager.currentLevelData.Value.spawnambles[SpawnedIndex].transform,
+                                                                                 true,
+                                                                                 LevelManager.currentLevelData.Value.spawnambles[SpawnedIndex].type);
             isDead = true;
         }
     }
