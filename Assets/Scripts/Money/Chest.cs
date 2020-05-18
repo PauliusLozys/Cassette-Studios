@@ -35,4 +35,13 @@ public class Chest : MonoBehaviour
             collider2D = other;
         }
     }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            collider2D = null;
+            Debug.Log("Player ran away from chest");
+        }
+    }
 }
