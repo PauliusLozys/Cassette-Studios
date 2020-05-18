@@ -44,7 +44,7 @@ public class LevelItemSpawningScript : MonoBehaviour
 
             if (instance != null)
             {
-                var enemy = instance.GetComponent<EnemyStats>();
+                var enemy = instance.GetComponent<Entity>();
                 var coin = instance.GetComponent<Coin>();
                 var chest = instance.GetComponent<Chest>();
                

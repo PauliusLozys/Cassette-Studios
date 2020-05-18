@@ -90,7 +90,7 @@ public static class LevelManager
 
 
         System.Random rand = new System.Random();
-        int[] levelIndexes = new int[] { 0, 1, 2, 3, 4 }.OrderBy(x => rand.Next()).ToArray();
+        int[] levelIndexes = new int[] { 0, 1, 2, 3, 4, 5, 6 }.OrderBy(x => rand.Next()).ToArray();
 
         var loadedLevels = new List<LevelData>();
         
@@ -105,7 +105,7 @@ public static class LevelManager
         //{
         //    levels.AddLast(item);
         //}
-        levels.AddLast(new LevelData { LevelIndex = 9 }); // Adds the testing level at the end
+        levels.AddLast(new LevelData { LevelIndex = 11 }); // Adds the testing level at the end
         currentLevelData = levels.First;
     }
     public static void SetLeftLevelAsCurrent()
@@ -125,7 +125,7 @@ public static class LevelManager
             spawnambles = new List<(Vector2, bool, SpawnType)>
             {
                 (new Vector2(-2.70f,9.5f),false,SpawnType.GoldChest),
-                (new Vector2(5.3f,-6.5f),false,SpawnType.SkeletonEnemy),
+                //(new Vector2(5.3f,-6.5f),false,SpawnType.SkeletonEnemy),
                 (new Vector2(20f,8.5f),false,SpawnType.StrangeEnemy),
             }
         });
@@ -143,7 +143,7 @@ public static class LevelManager
                 (new Vector2(13.3f,-2.7f),false,SpawnType.GoldCoin),
                 (new Vector2(14.1f,-2.7f),false,SpawnType.GoldCoin),
 
-                (new Vector2(4.3f,-5.5f),false,SpawnType.SkeletonEnemy),
+                //(new Vector2(4.3f,-5.5f),false,SpawnType.SkeletonEnemy),
                 (new Vector2(16f,-12.5f),false,SpawnType.StrangeEnemy),
             }
         });
@@ -161,8 +161,7 @@ public static class LevelManager
                 (new Vector2(17.7f,6.3f),false,SpawnType.GoldCoin), 
                 (new Vector2(-3.3f,12.4f),false,SpawnType.GoldCoin), 
 
-                (new Vector2(-1.4f,16.7f),false,SpawnType.BirdEnemy),
-                (new Vector2(3.56f,-2.47f),false,SpawnType.SkeletonEnemy),
+                //(new Vector2(3.56f,-2.47f),false,SpawnType.SkeletonEnemy),
             }
         });
 
@@ -192,8 +191,52 @@ public static class LevelManager
                 (new Vector2(-6.7f, 14.3f),false,SpawnType.GoldCoin),
                 (new Vector2(-7.7f, 14.3f),false,SpawnType.GoldCoin),
                 
-                (new Vector2(23.2f,11.7f),false,SpawnType.BirdEnemy),
                 (new Vector2(23.2f,0.5f),false,SpawnType.StrangeEnemy),
+            }
+        });
+
+        // Level 6 Data
+        levels.Add(new LevelData
+        {
+            LevelIndex = 8,
+            spawnambles = new List<(Vector2, bool, SpawnType)>
+            {
+                (new Vector2(8.8f, -2.67f),false,SpawnType.GoldCoin),
+                (new Vector2(18.5f, -2.67f),false,SpawnType.GoldCoin),
+                (new Vector2(28f, -2.67f),false,SpawnType.GoldCoin),
+                (new Vector2(37.3f, -2.67f),false,SpawnType.GoldCoin),
+
+
+            }
+        });
+
+        // Level 7 Data
+        levels.Add(new LevelData
+        {
+            LevelIndex = 9,
+            spawnambles = new List<(Vector2, bool, SpawnType)>
+            {
+                (new Vector2(57.3f, -3.5f),false,SpawnType.GoldChest),
+                (new Vector2(60.7f, -3.65f),false,SpawnType.GoldCoin),
+                (new Vector2(61.7f, -3.65f),false,SpawnType.GoldCoin),
+            }
+        });
+
+        // Level 8 Data
+        levels.Add(new LevelData
+        {
+            LevelIndex = 10,
+            spawnambles = new List<(Vector2, bool, SpawnType)>
+            {
+                (new Vector2(-15.9f, 13.31f),false,SpawnType.GoldChest),
+                (new Vector2(-15.07f, 13.31f),false,SpawnType.GoldCoin),
+                (new Vector2(-14.27f, 13.31f),false,SpawnType.GoldCoin),
+                (new Vector2(-13.3f, 13.31f),false,SpawnType.GoldCoin),
+
+                (new Vector2(21.23f, 7.55f),false,SpawnType.StrangeEnemy),
+                (new Vector2(46f, 7.55f),false,SpawnType.StrangeEnemy),
+
+
             }
         });
 

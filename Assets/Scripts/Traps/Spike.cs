@@ -4,23 +4,20 @@ using UnityEngine;
 
 public class Spike : MonoBehaviour
 {
-    private PlayerStats playerStats;
-    private PlayerController player;
-    int damage = 10;
+    private AttackDetails attackDetails;
 
     private void Start()
     {
-        playerStats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        attackDetails.damageAmount = 5;
+        attackDetails.position = this.transform.position;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            Debug.Log("Spike damage");
-            playerStats.DecreaseHealth(damage);
-            StartCoroutine(player.Knockback(0.02f, 1300, player.transform.position));
+            collision.gameObject.SendMessage("Damage", attackDetails);
+            //StartCoroutine(player.Knockback(0.02f, 1300, player.transform.position));
         }
     }
 }
