@@ -1039,7 +1039,7 @@ GameObject:
   - component: {fileID: 1163347334}
   - component: {fileID: 1163347336}
   m_Layer: 12
-  m_Name: happy merchant
+  m_Name: Dungeon Protector
   m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1084,9 +1084,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 28b460c434f17904595f2a0ac094f36d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 26b372c5116a4994cabd5567cea31f86, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 6, y: 6}
@@ -1103,8 +1103,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1163347331}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 21.482, y: -2.078, z: 0.1}
-  m_LocalScale: {x: 0.3022728, y: 0.3022728, z: 0.3741}
+  m_LocalPosition: {x: 21.55, y: -2.11, z: 0.1}
+  m_LocalScale: {x: 0.79044336, y: 0.79044336, z: 0.9782715}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 13
@@ -1150,18 +1150,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.07, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 6, y: 6}
+    oldSize: {x: 2.56, y: 2.56}
     newSize: {x: 6, y: 6}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6, y: 6}
+  m_Size: {x: 2.14, y: 2.34}
   m_EdgeRadius: 0
 --- !u!114 &1163347337
 MonoBehaviour:
@@ -2100,7 +2100,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: baee6bdd71a257e40b0a414a3a8bcd93, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cb8c1e5b0abd98e4eac47991429da36c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3512,12 +3512,12 @@ PrefabInstance:
     - target: {fileID: 3430806808957863195, guid: 892f1245f3c649a4aabe2afa0cd26cea,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.5518093
+      value: -6.5514345
       objectReference: {fileID: 0}
     - target: {fileID: 3430806808957863195, guid: 892f1245f3c649a4aabe2afa0cd26cea,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -15.1117935
+      value: -15.111794
       objectReference: {fileID: 0}
     - target: {fileID: 3430806809137812560, guid: 892f1245f3c649a4aabe2afa0cd26cea,
         type: 3}
