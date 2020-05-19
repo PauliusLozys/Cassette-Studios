@@ -39,6 +39,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels/Level 8.unity
     guid: 2a46d0ba6461a834abc2cbbcb72d5e78
   - enabled: 1
+    path: Assets/Scenes/EndGameScene.unity
+    guid: 141a0761284ecb14d97f8bf260db0f64
+  - enabled: 1
+    path: Assets/Scenes/CreditScene.unity
+    guid: 6df7a22023b51e04fa5d85d58151c3dc
+  - enabled: 1
     path: Assets/Scenes/StateMachineMobScene.unity
     guid: a4415112bdf949c4ab5fb37739d08c08
   - enabled: 1
