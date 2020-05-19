@@ -5021,7 +5021,7 @@ PrefabInstance:
     - target: {fileID: 3430806808957863195, guid: 892f1245f3c649a4aabe2afa0cd26cea,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -22.91766
+      value: -22.968002
       objectReference: {fileID: 0}
     - target: {fileID: 3430806809137812560, guid: 892f1245f3c649a4aabe2afa0cd26cea,
         type: 3}
@@ -7486,6 +7486,11 @@ PrefabInstance:
       propertyPath: transition
       value: 
       objectReference: {fileID: 2088438793}
+    - target: {fileID: 7659331739980226200, guid: ad941e0c14ac30f4fb36d1d73dd95a42,
+        type: 3}
+      propertyPath: CanEnterTheDungeon
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7659331739980226201, guid: ad941e0c14ac30f4fb36d1d73dd95a42,
         type: 3}
       propertyPath: m_LocalPosition.x
