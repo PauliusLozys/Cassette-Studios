@@ -9,7 +9,7 @@ public class Interactable : MonoBehaviour
     public string text;
     public void showPopup()
     {
-        Vector3 position = transform.position + new Vector3(0,2,0);
+        Vector3 position = transform.position + new Vector3(0,2,-0.1f);
         instance = Instantiate((Resources.Load("Popup") as GameObject).GetComponent<Transform>(), position, Quaternion.identity);
         if (!text.Equals(""))
         {

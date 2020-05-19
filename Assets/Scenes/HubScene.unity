@@ -1024,6 +1024,160 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1102188585}
   m_CullTransparentMesh: 0
+--- !u!1 &1163347331
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1163347333}
+  - component: {fileID: 1163347332}
+  - component: {fileID: 1163347337}
+  - component: {fileID: 1163347335}
+  - component: {fileID: 1163347334}
+  - component: {fileID: 1163347336}
+  m_Layer: 12
+  m_Name: happy merchant
+  m_TagString: Interactable
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!212 &1163347332
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1163347331}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 28b460c434f17904595f2a0ac094f36d, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 1
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 6, y: 6}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!4 &1163347333
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1163347331}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 21.482, y: -2.078, z: 0.1}
+  m_LocalScale: {x: 0.3022728, y: 0.3022728, z: 0.3741}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1163347334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1163347331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70dfde63e1fb69949b7f1e38d715e5c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue: {fileID: 1971267561}
+  isDialogueOpen: 0
+  text: Gib money and the sex dungeon is yours!!!
+--- !u!114 &1163347335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1163347331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd28f34496eeb5c42b8d923bd4ce99f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: Press "C" to talk
+--- !u!61 &1163347336
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1163347331}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 6, y: 6}
+    newSize: {x: 6, y: 6}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 6, y: 6}
+  m_EdgeRadius: 0
+--- !u!114 &1163347337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1163347331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dcc9d2fcc1d33742ab5fdc7c03c130b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1689234057}
+  LevelLoader: {fileID: 1336586387}
+  hasGivenMoney: 0
 --- !u!1 &1163748368
 GameObject:
   m_ObjectHideFlags: 0
@@ -1297,6 +1451,40 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &1336586385 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7659331739980226199, guid: ad941e0c14ac30f4fb36d1d73dd95a42,
+    type: 3}
+  m_PrefabInstance: {fileID: 7659331739198353904}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1336586387 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7659331739980226200, guid: ad941e0c14ac30f4fb36d1d73dd95a42,
+    type: 3}
+  m_PrefabInstance: {fileID: 7659331739198353904}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1336586385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec0663d728a1da741bae13923f08901a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1336586389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1336586385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70dfde63e1fb69949b7f1e38d715e5c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue: {fileID: 1971267561}
+  isDialogueOpen: 0
+  text: To enter this sex dungeon, one must give his money to the person who loves
+    money most.
 --- !u!1001 &1422750744
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1675,6 +1863,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1207789139}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1689234057 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2023197335925683689, guid: 3d77523ac00ac6c4fbeb7f658cd492ec,
+    type: 3}
+  m_PrefabInstance: {fileID: 1207789139}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1689234056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87fc92c61ab9f834092b7db20d61c367, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1689234063
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1837,7 +2037,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue: {fileID: 1971267561}
-  text: We don't make mistakes, just happy little accidents. Unless it's Terraria.
+  isDialogueOpen: 0
+  text: Fun fact. Terraria 1.4 update is one of the most enticipated and awaited
+    game update of 2020.
 --- !u!1 &1774870073
 GameObject:
   m_ObjectHideFlags: 0
@@ -1898,12 +2100,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 3b31de7ba5e2a304a8c97d0ed6b12651, type: 3}
+  m_Sprite: {fileID: 21300000, guid: baee6bdd71a257e40b0a414a3a8bcd93, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.56, y: 2.56}
+  m_Size: {x: 7.16, y: 6.69}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -1917,8 +2119,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1774870073}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.41, y: -2.16, z: 0.2}
-  m_LocalScale: {x: 0.674, y: 0.674, z: 0.674}
+  m_LocalPosition: {x: -1.02, y: -2.04, z: 0.2}
+  m_LocalScale: {x: 0.284428, y: 0.284428, z: 0.284428}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
@@ -1953,14 +2155,14 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.56, y: 2.56}
-    newSize: {x: 2.56, y: 2.56}
+    oldSize: {x: 7.16, y: 6.69}
+    newSize: {x: 7.16, y: 6.69}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.56, y: 2.56}
+  m_Size: {x: 7.26, y: 6.65}
   m_EdgeRadius: 0
 --- !u!114 &1774870078
 MonoBehaviour:
@@ -1987,6 +2189,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue: {fileID: 1971267561}
+  isDialogueOpen: 0
   text: Madness, as you know, is like gravity. All it takes is a little push.
 --- !u!1 &1867715236
 GameObject:
@@ -2059,7 +2262,7 @@ RectTransform:
   m_Children:
   - {fileID: 1867715237}
   m_Father: {fileID: 760194943}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2161,7 +2364,7 @@ RectTransform:
   m_Children:
   - {fileID: 216891273}
   m_Father: {fileID: 760194943}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -3309,12 +3512,12 @@ PrefabInstance:
     - target: {fileID: 3430806808957863195, guid: 892f1245f3c649a4aabe2afa0cd26cea,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.552271
+      value: -6.5518093
       objectReference: {fileID: 0}
     - target: {fileID: 3430806808957863195, guid: 892f1245f3c649a4aabe2afa0cd26cea,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -15.111793
+      value: -15.1117935
       objectReference: {fileID: 0}
     - target: {fileID: 3430806809137812560, guid: 892f1245f3c649a4aabe2afa0cd26cea,
         type: 3}
@@ -3573,7 +3776,7 @@ PrefabInstance:
     - target: {fileID: 3612978505499238932, guid: ffa23f2048f4c95449bc36d8d7b421cb,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ffa23f2048f4c95449bc36d8d7b421cb, type: 3}
@@ -3806,7 +4009,7 @@ PrefabInstance:
     - target: {fileID: 7659331739980226202, guid: ad941e0c14ac30f4fb36d1d73dd95a42,
         type: 3}
       propertyPath: m_Offset.x
-      value: 22.48
+      value: 22.08
       objectReference: {fileID: 0}
     - target: {fileID: 7659331739980226202, guid: ad941e0c14ac30f4fb36d1d73dd95a42,
         type: 3}

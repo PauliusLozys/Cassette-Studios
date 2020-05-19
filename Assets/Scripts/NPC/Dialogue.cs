@@ -6,10 +6,10 @@ using UnityEngine;
 public class Dialogue : MonoBehaviour
 {
     public Transform dialogue;
+    public bool isDialogueOpen = false;
     private Collider2D collider2D;
     private Transform dialogueContainer;
     private Transform dialogueTemplate;
-    private bool isDialogueOpen = false;
     public string text;
 
     // Start is called before the first frame update
@@ -36,6 +36,19 @@ public class Dialogue : MonoBehaviour
             Debug.Log("Dialogue closed");
             dialogueTemplate.gameObject.SetActive(isDialogueOpen);
         }
+    }
+
+    public void ShowDialogue()
+    {
+        dialogueTemplate.Find("dialogueText").GetComponent<TextMeshProUGUI>().SetText(text);
+        isDialogueOpen = true;
+        Debug.Log("Dialogue opened");
+        dialogueTemplate.gameObject.SetActive(isDialogueOpen);
+    }
+
+    public void ChangeDialogueText(string text)
+    {
+        dialogueTemplate.Find("dialogueText").GetComponent<TextMeshProUGUI>().SetText(text);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
