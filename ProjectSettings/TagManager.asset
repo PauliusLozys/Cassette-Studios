@@ -10,6 +10,8 @@ TagManager:
   - LevelArea
   - Coins
   - Chest
+  - PlayerProjectile
+  - PlayerProjeclite
   layers:
   - Default
   - TransparentFX

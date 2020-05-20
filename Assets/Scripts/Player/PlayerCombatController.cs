@@ -7,7 +7,7 @@ public class PlayerCombatController : MonoBehaviour
     [SerializeField]
     private bool combatEnabled;
     [SerializeField]
-    private float inputTimer, attack1Radius;
+    private float inputTimer, attack1Radius, rangedAttackCooldown;
     [SerializeField]
     private Transform attack1HitBoxPos;
     [SerializeField]
@@ -18,6 +18,7 @@ public class PlayerCombatController : MonoBehaviour
     private bool gotInput, isAttacking, isFirstAttack;
 
     private float lastInputTime = Mathf.NegativeInfinity;
+    private float lastRangedAttackTime = Mathf.NegativeInfinity;
 
     private AttackDetails attackDetails;
     public float rangedAttackDamage = 20;
@@ -59,16 +60,15 @@ public class PlayerCombatController : MonoBehaviour
             }
         }
 
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") && Time.time - lastRangedAttackTime > rangedAttackCooldown)
         {
+            lastRangedAttackTime = Time.time;
             Shoot();
         }
     }
 
     void Shoot() //shooting logic
     {
-        Debug.Log("Ranged attack");
-
         Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
     }
 
