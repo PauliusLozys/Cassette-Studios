@@ -444,6 +444,7 @@ MonoBehaviour:
   playerCheck: {fileID: 2578906635219717054}
   groundCheck: {fileID: 65853646}
   healthBar: {fileID: 242405336}
+  SpawnedIndex: -1
   idleStateData: {fileID: 11400000, guid: a12d58295869d5c4b8a72dd70b9e367e, type: 2}
   moveStateData: {fileID: 11400000, guid: d71407fa20cb3eb42ae5412ed3504c41, type: 2}
   playerDetectedData: {fileID: 11400000, guid: ba0ca8ecf99120845b274a5ff27a54a8, type: 2}

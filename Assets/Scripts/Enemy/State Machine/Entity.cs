@@ -14,7 +14,6 @@ public class Entity : MonoBehaviour
     public GameObject aliveGO { get; private set; }
     public AnimationToStateMachine atsm { get; private set; }
     public int lastDamageDirection { get; private set; }
-    public int SpawnedIndex = -1;
     [SerializeField]
     private Transform wallCheck;
     [SerializeField]
@@ -24,6 +23,8 @@ public class Entity : MonoBehaviour
     [SerializeField]
     private Transform groundCheck;
 
+    public EnemyHealthBar healthBar;
+    public int SpawnedIndex = -1;
     private float currentHealth;
     private float currentStunResistance;
     private float lastDamageTime;
@@ -37,6 +38,7 @@ public class Entity : MonoBehaviour
     {
         facingDirection = 1;
         currentHealth = entityData.maxHealth;
+        healthBar.SetMaxHealth(currentHealth);
         currentStunResistance = entityData.stunResistance;
 
         aliveGO = transform.Find("Alive").gameObject;
@@ -124,6 +126,7 @@ public class Entity : MonoBehaviour
         lastDamageTime = Time.time;
 
         currentHealth -= attackDetails.damageAmount;
+        healthBar.SetHealth(currentHealth);
         currentStunResistance -= attackDetails.stunDamageAmount;
 
         DamageHop(entityData.damageHopSpeed);
@@ -144,8 +147,12 @@ public class Entity : MonoBehaviour
             isStunned = true;
         }
 
-        if(currentHealth <= 0)
+        if (currentHealth <= 0)
         {
+            if (SpawnedIndex != -1)
+                LevelManager.currentLevelData.Value.spawnambles[SpawnedIndex] = (LevelManager.currentLevelData.Value.spawnambles[SpawnedIndex].transform,
+                                                                                 true,
+                                                                                 LevelManager.currentLevelData.Value.spawnambles[SpawnedIndex].type);
             isDead = true;
         }
     }
