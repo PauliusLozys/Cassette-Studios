@@ -8,7 +8,13 @@ public class LevelLoader : MonoBehaviour
     public Animator transition;
     public BoxCollider2D trigger;
     public float transitionTime = 1f;
+    public bool CanEnterTheDungeon = false;
+    private Dialogue dialogue;
 
+    private void Start()
+    {
+        dialogue = GetComponent<Dialogue>();
+    }
     public void LoadNextLevel()
     {
         StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
@@ -25,10 +31,15 @@ public class LevelLoader : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag=="Player")
+        if (collision.tag =="Player" && CanEnterTheDungeon)
         {
+            SaveSystem.DeleteLevelSave();
             LevelManager.LoadLevelData();
             LoadNextLevel();
+        }
+        else if (collision.tag == "Player" && !CanEnterTheDungeon)
+        {
+            dialogue.ShowDialogue();
         }
     }
 }

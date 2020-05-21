@@ -13,12 +13,14 @@ public class EnemyCombatController : MonoBehaviour
     public float attackRate = 1; // attacks per second
     public float damage = 10f;
     private AttackDetails attackDetails;
+
     float nextAttackTime = 0f;
     //private bool isAttacking = false;
 
     private void Start()
     {
         anim = GetComponent<Animator>();
+
     }
 
     // Update is called once per frame
@@ -30,12 +32,9 @@ public class EnemyCombatController : MonoBehaviour
         {
             if (tmp != null)
             {
-                //canAttack = true;
-                attackDetails.damageAmount = damage;
-                attackDetails.position = this.transform.position;
+
                 Attack();
-                nextAttackTime = Time.time + 1f / attackRate;
-                tmp.gameObject.SendMessage("Damage", attackDetails);
+
             }
         }
     }
@@ -45,6 +44,20 @@ public class EnemyCombatController : MonoBehaviour
         Debug.Log("Player hit");
         anim.SetBool("canAttack", true);
         anim.SetBool("isAttacking", true);
+    }
+    public  void CheckAttackHitBox()
+    {
+        Collider2D[] detectedObjects = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, whatIsDamageable);
+
+        attackDetails.damageAmount = damage;
+        attackDetails.position = this.transform.position;
+        attackDetails.stunDamageAmount = 1;
+        foreach (var collider in detectedObjects)
+        {
+
+                collider.transform.SendMessage("Damage", attackDetails);
+
+        }
     }
 
     //void CheckAttacks()

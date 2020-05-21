@@ -4,14 +4,19 @@ using UnityEngine;
 
 public class Chest : MonoBehaviour
 {
-    private PlayerStats playerStats;
     public int chestValue = 1000;
+    public int SpawnedIndex = -1;
+    private PlayerStats playerStats;
     private Collider2D collider2D;
-
+    
     private void Update()
     {
         if (collider2D != null && Input.GetKeyDown(KeyCode.E))
         {
+            if (SpawnedIndex != -1)
+                LevelManager.currentLevelData.Value.spawnambles[SpawnedIndex] = (LevelManager.currentLevelData.Value.spawnambles[SpawnedIndex].transform,
+                                                                                 true,
+                                                                                 LevelManager.currentLevelData.Value.spawnambles[SpawnedIndex].type);
             playerStats.IncreaseMoney(chestValue);
             Debug.Log("Chest destroyed");
             Destroy(gameObject);
@@ -28,6 +33,15 @@ public class Chest : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             collider2D = other;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            collider2D = null;
+            Debug.Log("Player ran away from chest");
         }
     }
 }

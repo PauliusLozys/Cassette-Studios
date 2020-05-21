@@ -7,15 +7,18 @@ public class PlayerCombatController : MonoBehaviour
     [SerializeField]
     private bool combatEnabled;
     [SerializeField]
-    private float inputTimer, attack1Radius;
+    private float inputTimer, attack1Radius, rangedAttackCooldown;
     [SerializeField]
     private Transform attack1HitBoxPos;
     [SerializeField]
     private LayerMask whatIsDamageable;
+    [SerializeField]
+    private float stunDamageAmount = 1f;
     
     private bool gotInput, isAttacking, isFirstAttack;
 
     private float lastInputTime = Mathf.NegativeInfinity;
+    private float lastRangedAttackTime = Mathf.NegativeInfinity;
 
     private AttackDetails attackDetails;
     public float rangedAttackDamage = 20;
@@ -57,16 +60,15 @@ public class PlayerCombatController : MonoBehaviour
             }
         }
 
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") && Time.time - lastRangedAttackTime > rangedAttackCooldown)
         {
+            lastRangedAttackTime = Time.time;
             Shoot();
         }
     }
 
     void Shoot() //shooting logic
     {
-        Debug.Log("Ranged attack");
-
         Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
     }
 
@@ -98,12 +100,15 @@ public class PlayerCombatController : MonoBehaviour
         Collider2D[] detectedObjects = Physics2D.OverlapCircleAll(attack1HitBoxPos.position, attack1Radius, whatIsDamageable);
 
         attackDetails.damageAmount = playerStats.GetPlayerDamage();
+        attackDetails.position = this.transform.position;
+        attackDetails.stunDamageAmount = stunDamageAmount;
         //attackDetails.position = transform.position;
         
         foreach (var  collider in detectedObjects)
         {
 
-            collider.GetComponent<EnemyStats>().DecreaseHealth(playerStats.GetPlayerDamage());
+            collider.transform.parent.SendMessage("Damage", attackDetails);
+
         }
     }
 

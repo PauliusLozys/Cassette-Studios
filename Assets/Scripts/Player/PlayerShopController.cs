@@ -42,10 +42,7 @@ public class PlayerShopController : MonoBehaviour, IShopCustomer
         {
             playerStats.IncreaseMoney(10_000);
         }
-        else if (Input.GetKeyDown(KeyCode.L))
-        {
-            playerStats.SetDefaultStats();
-        }
+        
     }
     public bool TrySpendGold(int goldAmount)
     {
@@ -69,16 +66,16 @@ public class PlayerShopController : MonoBehaviour, IShopCustomer
                 playerStats.SetPlayerCurrentHealth(playerStats.GetPlayerCurrentHealth() + 5);
                 break;
             case BaseShop.UpgradeStats.AgilityUpgrade:
-                playerStats.SetPlayerMovementSpeed(playerStats.GetPlayerMovementSpeed() + 0.5f);
+                playerStats.SetPlayerMovementSpeed(playerStats.GetPlayerMovementSpeed() + 0.2f);
                 break;
             case BaseShop.UpgradeStats.JumpingUpgrade:
                 playerStats.SetPlayerNumberOfJumps(playerStats.GetPlayerNumberOfJumps() + 1);
                 break;
             case BaseShop.UpgradeStats.WeaponUpgrade:
-                playerStats.SetPlayerDamage(playerStats.GetPlayerDamage() + 10f);
+                playerStats.SetPlayerDamage(playerStats.GetPlayerDamage() + 5f);
                 break;
             case BaseShop.UpgradeStats.RangedUpgrade:
-                playerStats.SetPlayerRangedDamage(playerStats.GetPlayerRangedDamage() + 10f);
+                playerStats.SetPlayerRangedDamage(playerStats.GetPlayerRangedDamage() + 2f);
                 break;
         }
     }
