@@ -41,7 +41,8 @@ public class PauseMenu : MonoBehaviour
     public void QuitGame()
     {
         Debug.Log("QuitGame");
-        SaveSystem.SaveLevels();
+        if(!LevelManager.isPlayerDead)
+            SaveSystem.SaveLevels();
         Application.Quit();
     }
 

@@ -57,6 +57,7 @@ public class LevelSaveData
 
 public static class LevelManager
 {
+    public static bool isPlayerDead = false;
     public static LinkedList<LevelData> levels;
     public static LinkedListNode<LevelData> currentLevelData;
 

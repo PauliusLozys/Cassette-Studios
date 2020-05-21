@@ -153,6 +153,7 @@ public class PlayerStats : MonoBehaviour
     {
         // Delete Level data
         currentHealth = maxHealth;
+        LevelManager.isPlayerDead = true;
         SaveSystem.DeleteLevelSave();
         Destroy(gameObject);
     }
