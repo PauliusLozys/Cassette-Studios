@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.VR;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class PlayerStats : MonoBehaviour
 {
@@ -51,7 +52,6 @@ public class PlayerStats : MonoBehaviour
     {
         money = value;
     }
-
     public void SetPlayerMaxHealth(int value)
     {
         maxHealth = value;
@@ -87,7 +87,7 @@ public class PlayerStats : MonoBehaviour
     private void Start()
     {
         PlayerData data = SaveSystem.LoadSave();
-        if(data != null) // If save file exists
+        if(data != null && SceneManager.GetActiveScene().name != "TutorialScene") // If save file exists AND its not a tutorial level
         {
             maxHealth = data.maxHealth;
             currentHealth = data.currentHealth;
@@ -107,6 +107,10 @@ public class PlayerStats : MonoBehaviour
         }
 
         playerHealthBar.SetMaxHealth(maxHealth);
+        
+        if (SceneManager.GetActiveScene().name == "HubScene")
+            currentHealth = maxHealth;
+            
         playerHealthBar.SetHealth(currentHealth);
     }
 
@@ -128,7 +132,8 @@ public class PlayerStats : MonoBehaviour
 
     private void OnDestroy()
     {
-        SaveSystem.SavePlayer(maxHealth, currentHealth, defence, numberOfJumps, playerRangedDamage, playerRangedSpeed, playerDamage, movementSpeed, money);
+        if(SceneManager.GetActiveScene().name != "TutorialScene")
+            SaveSystem.SavePlayer(maxHealth, currentHealth, defence, numberOfJumps, playerRangedDamage, playerRangedSpeed, playerDamage, movementSpeed, money);
     }
     public void DecreaseHealth(int damage)
     {

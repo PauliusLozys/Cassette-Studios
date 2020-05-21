@@ -33,6 +33,7 @@ public class LevelLoader : MonoBehaviour
     {
         if (collision.tag =="Player" && CanEnterTheDungeon)
         {
+            SaveSystem.DeleteLevelSave();
             LevelManager.LoadLevelData();
             LoadNextLevel();
         }
