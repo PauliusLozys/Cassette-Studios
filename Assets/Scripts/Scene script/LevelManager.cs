@@ -5,7 +5,7 @@ using System.Linq;
 [System.Serializable]
 public enum SpawnType
 {
-    BirdEnemy,
+    ArcherEnemy,
     SkeletonEnemy,
     StrangeEnemy,
     GoldCoin,
@@ -67,34 +67,15 @@ public static class LevelManager
 
     public static void LoadLevelData()
     {
+        // New Level generatiom
+
         levels = new LinkedList<LevelData>();
-
-        var data = SaveSystem.LoadLevels();
-        if(data != null)
-        {
-            for (int i = 0; i < data.levelsIndexs.Count; i++)
-            {
-                var tmp = new LevelData();
-                tmp.LevelIndex = data.levelsIndexs[i];
-                tmp.spawnambles = new List<(Vector2 transform, bool IsDead, SpawnType type)>();
-
-                foreach (var item in data.levels[i])
-                {
-                    tmp.spawnambles.Add((new Vector2(item.Item1.x, item.Item1.y), item.Item2, item.Item3));
-                }
-                levels.AddLast(tmp);
-            }
-            currentLevelData = levels.First; // currently for debuging
-            return;
-        }
-
-
         System.Random rand = new System.Random();
-        int[] levelIndexes = new int[] { 0, 1, 2, 3, 4, 5, 6 }.OrderBy(x => rand.Next()).ToArray();
+        int[] levelIndexes = new int[] { 0, 1, 2, 3, 4, 5, 6, 7 }.OrderBy(x => rand.Next()).ToArray();
 
         var loadedLevels = new List<LevelData>();
         
-        levels.AddFirst(new LevelData { LevelIndex = 2 }); // Adds the Dungeon entrance as first level
+        levels.AddFirst(new LevelData { LevelIndex = 3 }); // Adds the Dungeon entrance as first level
 
         LoadAllLevelSpawnables(loadedLevels);
         foreach (var item in levelIndexes)
@@ -105,7 +86,7 @@ public static class LevelManager
         //{
         //    levels.AddLast(item);
         //}
-        levels.AddLast(new LevelData { LevelIndex = 11 }); // Adds the testing level at the end
+        levels.AddLast(new LevelData { LevelIndex = 12 }); // Adds the testing level at the end
         currentLevelData = levels.First;
     }
     public static void SetLeftLevelAsCurrent()
@@ -121,11 +102,11 @@ public static class LevelManager
         // level 1 Data
         levels.Add(new LevelData
         {
-            LevelIndex = 3,
+            LevelIndex = 4,
             spawnambles = new List<(Vector2, bool, SpawnType)>
             {
                 (new Vector2(-2.70f,9.5f),false,SpawnType.GoldChest),
-                //(new Vector2(5.3f,-6.5f),false,SpawnType.SkeletonEnemy),
+                (new Vector2(5.3f,-6.5f),false,SpawnType.ArcherEnemy),
                 (new Vector2(20f,8.5f),false,SpawnType.StrangeEnemy),
             }
         });
@@ -133,7 +114,7 @@ public static class LevelManager
         // Level 2 Data
         levels.Add(new LevelData
         {
-            LevelIndex = 4,
+            LevelIndex = 5,
             spawnambles = new List<(Vector2, bool, SpawnType)>
             {
                 (new Vector2(16.3f,4.5f),false,SpawnType.GoldChest),
@@ -143,7 +124,7 @@ public static class LevelManager
                 (new Vector2(13.3f,-2.7f),false,SpawnType.GoldCoin),
                 (new Vector2(14.1f,-2.7f),false,SpawnType.GoldCoin),
 
-                //(new Vector2(4.3f,-5.5f),false,SpawnType.SkeletonEnemy),
+                (new Vector2(4.3f,-5.5f),false,SpawnType.ArcherEnemy),
                 (new Vector2(16f,-12.5f),false,SpawnType.StrangeEnemy),
             }
         });
@@ -151,7 +132,7 @@ public static class LevelManager
         // Level 3 Data
         levels.Add(new LevelData
         {
-            LevelIndex = 5,
+            LevelIndex = 6,
             spawnambles = new List<(Vector2, bool, SpawnType)>
             {
                 (new Vector2(-2.7f,8.5f),false,SpawnType.GoldChest), 
@@ -161,14 +142,14 @@ public static class LevelManager
                 (new Vector2(17.7f,6.3f),false,SpawnType.GoldCoin), 
                 (new Vector2(-3.3f,12.4f),false,SpawnType.GoldCoin), 
 
-                //(new Vector2(3.56f,-2.47f),false,SpawnType.SkeletonEnemy),
+                (new Vector2(3.56f,-2.47f),false,SpawnType.ArcherEnemy),
             }
         });
 
         // Level 4 Data
         levels.Add(new LevelData
         {
-            LevelIndex = 6,
+            LevelIndex = 7,
             spawnambles = new List<(Vector2, bool, SpawnType)>
             {
 
@@ -184,7 +165,7 @@ public static class LevelManager
         // Level 5 Data
         levels.Add(new LevelData
         {
-            LevelIndex = 7,
+            LevelIndex = 8,
             spawnambles = new List<(Vector2, bool, SpawnType)>
             {
                 (new Vector2(-5.7f,14.3f),false,SpawnType.GoldCoin),
@@ -198,7 +179,7 @@ public static class LevelManager
         // Level 6 Data
         levels.Add(new LevelData
         {
-            LevelIndex = 8,
+            LevelIndex = 9,
             spawnambles = new List<(Vector2, bool, SpawnType)>
             {
                 (new Vector2(8.8f, -2.67f),false,SpawnType.GoldCoin),
@@ -213,7 +194,7 @@ public static class LevelManager
         // Level 7 Data
         levels.Add(new LevelData
         {
-            LevelIndex = 9,
+            LevelIndex = 10,
             spawnambles = new List<(Vector2, bool, SpawnType)>
             {
                 (new Vector2(57.3f, -3.5f),false,SpawnType.GoldChest),
@@ -225,7 +206,7 @@ public static class LevelManager
         // Level 8 Data
         levels.Add(new LevelData
         {
-            LevelIndex = 10,
+            LevelIndex = 11,
             spawnambles = new List<(Vector2, bool, SpawnType)>
             {
                 (new Vector2(-15.9f, 13.31f),false,SpawnType.GoldChest),

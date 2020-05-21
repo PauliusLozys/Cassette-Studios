@@ -14,10 +14,10 @@ public class LevelItemSpawningScript : MonoBehaviour
             switch (item.Item3)
             {
                 default:
-                case SpawnType.BirdEnemy:
-                    Debug.Log("Should spawn a bird");
-                    //if (!item.IsDead)
-                    //Instantiate((Resources.Load("Bird") as GameObject).GetComponent<Transform>(), item.transform + new Vector2(0,1.5f), Quaternion.identity);
+                case SpawnType.ArcherEnemy:
+                    Debug.Log("Should spawn an archer");
+                    if (!item.IsDead)
+                        instance = Instantiate((Resources.Load("Enemy2") as GameObject).GetComponent<Transform>(), item.transform + new Vector2(0,1.5f), Quaternion.identity);
                     break;
                 case SpawnType.SkeletonEnemy:
                     Debug.Log("Skeleton Spawned");
