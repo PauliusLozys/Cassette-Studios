@@ -35,13 +35,13 @@ public abstract class BaseShop : MonoBehaviour
     protected void LoadAllUpgrades()
     {
         // Add shop upgrades into a list here
-        upgrades.Add(new Upgrades(UpgradeStats.HealthUpgrade, "Health upgrade", "Current health:", 360, 400, true, GameAssets.i.HealthIconSprite));
-        upgrades.Add(new Upgrades(UpgradeStats.ArmourUpgrade, "Defence upgrade", "Current defence:", 600, 20, true, GameAssets.i.ArmourIconSprite));
-        upgrades.Add(new Upgrades(UpgradeStats.AgilityUpgrade, "Agility upgrade", "Current movement speed:", 520, 13.0f, true, GameAssets.i.AgilityIconSprite));
-        upgrades.Add(new Upgrades(UpgradeStats.JumpingUpgrade, "Jumping upgrade", "Current number of Jumps:", 4500, 2, true, GameAssets.i.JumpingIconSprite));
+        upgrades.Add(new Upgrades(UpgradeStats.HealthUpgrade, "Health upgrade", "Current health:", 100, 400, true, GameAssets.i.HealthIconSprite));
+        upgrades.Add(new Upgrades(UpgradeStats.ArmourUpgrade, "Defence upgrade", "Current defence:", 200, 20, true, GameAssets.i.ArmourIconSprite));
+        upgrades.Add(new Upgrades(UpgradeStats.AgilityUpgrade, "Agility upgrade", "Current movement speed:", 200, 13.0f, true, GameAssets.i.AgilityIconSprite));
+        upgrades.Add(new Upgrades(UpgradeStats.JumpingUpgrade, "Jumping upgrade", "Current number of Jumps:", 2000, 2, true, GameAssets.i.JumpingIconSprite));
 
-        upgrades.Add(new Upgrades(UpgradeStats.WeaponUpgrade, "Weapon upgrade", "Current melee damage:", 145, 80, false, GameAssets.i.WeaponIconSprite));
-        upgrades.Add(new Upgrades(UpgradeStats.RangedUpgrade, "Bow upgrade", "Current range damage:", 320, 50, false, GameAssets.i.RangedIconSprite));
+        upgrades.Add(new Upgrades(UpgradeStats.WeaponUpgrade, "Weapon upgrade", "Current melee damage:", 100, 80, false, GameAssets.i.WeaponIconSprite));
+        upgrades.Add(new Upgrades(UpgradeStats.RangedUpgrade, "Bow upgrade", "Current range damage:", 150, 50, false, GameAssets.i.RangedIconSprite));
     }
     protected float GetCurrentStatInfo(UpgradeStats upgrades)
     {
