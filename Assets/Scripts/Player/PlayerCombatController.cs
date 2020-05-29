@@ -148,4 +148,8 @@ public class PlayerCombatController : MonoBehaviour
         combatEnabled = state;
     }
 
+    public float GetRangedAttackCooldown()
+    {
+        return rangedAttackCooldown;
+    }
 }
