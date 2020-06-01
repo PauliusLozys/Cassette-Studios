@@ -98,7 +98,6 @@ public class PlayerStats : MonoBehaviour
             numberOfJumps = data.numberOfJumps;
             movementSpeed = data.movementSpeed;
             money = data.money;
-            text.text = money.ToString();
             Debug.Log("File succsessfully loaded");
         }
         else // if save file is not found, assing defaul values
@@ -106,6 +105,7 @@ public class PlayerStats : MonoBehaviour
             SetDefaultStats();
         }
 
+        text.text = money.ToString();
         playerHealthBar.SetMaxHealth(maxHealth);
         
         if (SceneManager.GetActiveScene().name == "HubScene")
