@@ -11,5 +11,6 @@ __Spooky Castle™__ is a 2D, roguelike, dungeon crawaler game that is in no way
 * __Banger music__
 * __Dialog boxes__
 * __Up to 8 random levels to play through__
+* __Random level placement on dungeon entering :OO__
 
 If you like what we did, we would very much appreciate if you gave us a donation on our itch.io page ;)
