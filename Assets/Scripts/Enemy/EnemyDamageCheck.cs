@@ -7,8 +7,12 @@ public class EnemyDamageCheck : MonoBehaviour
     AttackDetails attackDetails;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        attackDetails.damageAmount = 30;
-        attackDetails.position = this.transform.position;
-        collision.transform.SendMessage("Damage", attackDetails);
+        if (collision.tag == "Player")
+        {
+            attackDetails.damageAmount = 30;
+            attackDetails.position = this.transform.position;
+            collision.transform.SendMessage("Damage", attackDetails);
+        }
+        
     }
 }
