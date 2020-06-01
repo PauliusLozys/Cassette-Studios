@@ -464,7 +464,7 @@ public class PlayerController : MonoBehaviour
 
     private void Flip()
     {
-        if (!isWallSliding && canFlip && !knockback)
+        if (!isWallSliding && canFlip && !knockback && !PauseMenu.GameIsPaused && !Pause.GameIsPaused)
         {
             facingDirection *= -1;
             isFacingRight = !isFacingRight;

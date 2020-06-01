@@ -42,6 +42,11 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene(2);
     }
 
+    public void LoadNewGame()
+    {
+        Debug.Log("Load new game");
+    }
+
     public void LoadTutorial()
     {
         SceneManager.LoadScene(1);
