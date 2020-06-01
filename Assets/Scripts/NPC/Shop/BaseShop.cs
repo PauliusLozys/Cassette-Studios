@@ -84,12 +84,17 @@ public abstract class BaseShop : MonoBehaviour
         shopItemTransform.Find("nameText").GetComponent<TextMeshProUGUI>().SetText(upgrade.UpgradeName);
         shopItemTransform.Find("priceText").GetComponent<TextMeshProUGUI>().SetText(upgrade.Price.ToString());
         shopItemTransform.Find("itemIcon").GetComponent<Image>().sprite = upgrade.Sprite;
-        if (GetCurrentStatInfo(upgrade.Stat) < upgrade.ItemCap)
+        if (GetCurrentStatInfo(upgrade.Stat) < upgrade.ItemCap && upgrade.Price <= playerStats.GetPlayerMoney())
             shopItemTransform.Find("currentStats").GetComponent<TextMeshProUGUI>().SetText($"{upgrade.UpgradeDescription} {GetCurrentStatInfo(upgrade.Stat)}/{upgrade.ItemCap}");
-        else
+        else if(GetCurrentStatInfo(upgrade.Stat) >= upgrade.ItemCap)
         {
             shopItemTransform.Find("background").GetComponent<Image>().color = Color.red;
             shopItemTransform.Find("currentStats").GetComponent<TextMeshProUGUI>().SetText("Maximum limit reaced");
+        }
+        else if(upgrade.Price > playerStats.GetPlayerMoney())
+        {
+            shopItemTransform.Find("background").GetComponent<Image>().color = Color.red;
+            shopItemTransform.Find("currentStats").GetComponent<TextMeshProUGUI>().SetText("Insufficient funds");
         }
         shopItemTransform.GetComponent<Button>().onClick.AddListener(() =>
         {
@@ -104,10 +109,8 @@ public abstract class BaseShop : MonoBehaviour
     public void TryBuyUpgrade(Upgrades upgrade, int shopIndex)
     {
         // If player has enough money
-        if (customer.TrySpendGold(upgrade.Price))
+        if (GetCurrentStatInfo(upgrade.Stat) < upgrade.ItemCap && customer.TrySpendGold(upgrade.Price)) // If the player has money and the cap is not reached
         {
-            if (GetCurrentStatInfo(upgrade.Stat) < upgrade.ItemCap) // If cap is reached shop doenst work
-            {
                 customer.BoughtItem(upgrade.Stat);
                 // Updating Item description
                 if (GetCurrentStatInfo(upgrade.Stat) < upgrade.ItemCap)
@@ -121,12 +124,14 @@ public abstract class BaseShop : MonoBehaviour
                     buttons[shopIndex].Find("currentStats").GetComponent<TextMeshProUGUI>().SetText("Maximum limit reaced");
                     buttons[shopIndex].Find("background").GetComponent<Image>().color = Color.red;
                 }
-            }
         }
         else
         {
-            buttons[shopIndex].Find("currentStats").GetComponent<TextMeshProUGUI>().SetText("Insufficient funds");
-            buttons[shopIndex].Find("background").GetComponent<Image>().color = Color.red;
+            if(GetCurrentStatInfo(upgrade.Stat) < upgrade.ItemCap)
+            {
+                buttons[shopIndex].Find("currentStats").GetComponent<TextMeshProUGUI>().SetText("Insufficient funds");
+                buttons[shopIndex].Find("background").GetComponent<Image>().color = Color.red;
+            }
         }
     }
 

@@ -57,6 +57,8 @@ public class PauseMenu : MonoBehaviour
     public void LoadMainMenu()
     {
         Resume();
+        if (!LevelManager.isPlayerDead)
+            SaveSystem.SaveLevels();
         SceneManager.LoadScene(0);
     }
 }
