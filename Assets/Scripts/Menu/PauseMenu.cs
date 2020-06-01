@@ -49,6 +49,8 @@ public class PauseMenu : MonoBehaviour
     public void GoToHub()
     {
         Resume();
+        if (!LevelManager.isPlayerDead)
+            SaveSystem.SaveLevels();
         SceneManager.LoadScene("HubScene");
     }
 

@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public void LoadHub()
+    public void LoadHub() // Continue a game
     {
         var data = SaveSystem.LoadLevels();
         if (data != null)
@@ -39,12 +39,14 @@ public class MainMenu : MonoBehaviour
 
             return;
         }
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(2); // Load Hub
     }
 
     public void LoadNewGame()
     {
-        Debug.Log("Load new game");
+        SaveSystem.DeletePlayerSave();
+        SaveSystem.DeleteLevelSave();
+        SceneManager.LoadScene(2); // Load Hub
     }
 
     public void LoadTutorial()

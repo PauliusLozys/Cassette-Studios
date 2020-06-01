@@ -79,14 +79,12 @@ public static class LevelManager
         levels.AddFirst(new LevelData { LevelIndex = 3 }); // Adds the Dungeon entrance as first level
 
         LoadAllLevelSpawnables(loadedLevels);
+
         foreach (var item in levelIndexes)
         {
             levels.AddLast(loadedLevels[item]);
         }
-        //foreach (var item in loadedLevels)
-        //{
-        //    levels.AddLast(item);
-        //}
+
         levels.AddLast(new LevelData { LevelIndex = 12 }); // Adds the testing level at the end
         currentLevelData = levels.First;
     }
