@@ -36,7 +36,7 @@ public abstract class BaseShop : MonoBehaviour
     {
         // Add shop upgrades into a list here
         upgrades.Add(new Upgrades(UpgradeStats.HealthUpgrade, "Health upgrade", "Current health:", 100, 400, true, GameAssets.i.HealthIconSprite));
-        upgrades.Add(new Upgrades(UpgradeStats.ArmourUpgrade, "Defence upgrade", "Current defence:", 200, 20, true, GameAssets.i.ArmourIconSprite));
+        upgrades.Add(new Upgrades(UpgradeStats.ArmourUpgrade, "Defence upgrade", "Current defence:", 200, 45, true, GameAssets.i.ArmourIconSprite));
         upgrades.Add(new Upgrades(UpgradeStats.AgilityUpgrade, "Agility upgrade", "Current movement speed:", 200, 13.0f, true, GameAssets.i.AgilityIconSprite));
         upgrades.Add(new Upgrades(UpgradeStats.JumpingUpgrade, "Jumping upgrade", "Current number of Jumps:", 2000, 2, true, GameAssets.i.JumpingIconSprite));
 
