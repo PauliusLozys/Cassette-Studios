@@ -10,20 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8616551fadf786b468748b4b85698cb9, type: 3}
-  m_Name: E1_BaseData
+  m_Name: E3_BaseData
   m_EditorClassIdentifier: 
   wallCheckDistance: 0.2
   ledgeCheckDistance: 0.4
   groundCheckRadius: 0.3
-  maxHealth: 200
+  maxHealth: 80
   damageHopSpeed: 10
-  minAgroDistance: 6
-  maxAgroDistance: 8
+  minAgroDistance: 8
+  maxAgroDistance: 12
   stunResistance: 3
   stunRecovery: 2
   hitParticle: {fileID: 6240072112886026631, guid: d3ad3f1375e0d114ca19695641fceb61,
     type: 3}
-  closeRangeActionDistance: 1.75
+  closeRangeActionDistance: 1
   whatIsGround:
     serializedVersion: 2
     m_Bits: 2048
