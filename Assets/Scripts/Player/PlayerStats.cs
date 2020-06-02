@@ -84,7 +84,7 @@ public class PlayerStats : MonoBehaviour
     {
         playerRangedSpeed = value;
     }
-    private void Start()
+    private void Awake()
     {
         PlayerData data = SaveSystem.LoadSave();
         if(data != null && SceneManager.GetActiveScene().name != "TutorialScene") // If save file exists AND its not a tutorial level
