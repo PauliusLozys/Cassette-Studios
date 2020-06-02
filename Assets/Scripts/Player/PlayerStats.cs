@@ -143,7 +143,8 @@ public class PlayerStats : MonoBehaviour
         else
             currentHealth -= damage;
 
-        Debug.Log(currentHealth);
+        //Debug.Log(currentHealth);
+
         playerHealthBar.SetHealth(currentHealth);
         if (currentHealth <= 0)
         {

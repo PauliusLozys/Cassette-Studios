@@ -19,10 +19,10 @@ public class LevelItemSpawningScript : MonoBehaviour
                     if (!item.IsDead)
                         instance = Instantiate((Resources.Load("Enemy2") as GameObject).GetComponent<Transform>(), item.transform + new Vector2(0,1.5f), Quaternion.identity);
                     break;
-                case SpawnType.SkeletonEnemy:
-                    Debug.Log("Skeleton Spawned");
+                case SpawnType.MushroomEnemy:
+                    Debug.Log("Mushroom lad Spawned");
                     if (!item.IsDead)
-                        instance = Instantiate((Resources.Load("Skeleton") as GameObject).GetComponent<Transform>(), item.transform + new Vector2(0, 1), Quaternion.identity);
+                        instance = Instantiate((Resources.Load("Enemy3") as GameObject).GetComponent<Transform>(), item.transform + new Vector2(0, 1), Quaternion.identity);
                     break;
                 case SpawnType.StrangeEnemy:
                     Debug.Log("Strange enemy Spawned");

@@ -6,7 +6,7 @@ using System.Linq;
 public enum SpawnType
 {
     ArcherEnemy,
-    SkeletonEnemy,
+    MushroomEnemy,
     StrangeEnemy,
     GoldCoin,
     GoldChest
@@ -18,8 +18,6 @@ public class LevelData
     /// Level build index
     /// </summary>
     public int LevelIndex { get; set; }
-
-    // other level data
 
     /// <summary>
     /// A list of all spawnable types in a level
@@ -35,7 +33,6 @@ public class LevelSaveData
 
     public LevelSaveData(LinkedList<LevelData> levels,LinkedListNode<LevelData> currentNode)
     {
-      //  this.levels = levels.ToList();
         this.currentNode = currentNode.Value.LevelIndex;
         foreach (var item in levels)
         {
@@ -51,9 +48,7 @@ public class LevelSaveData
             this.levels.Add(tmp);
         }
     }
-
 }
-
 
 public static class LevelManager
 {
@@ -68,8 +63,7 @@ public static class LevelManager
 
     public static void LoadLevelData()
     {
-        // New Level generatiom
-
+        // New Level generatiom, if the player save exist, level loading is handaled in the main menu screen script
         levels = new LinkedList<LevelData>();
         System.Random rand = new System.Random();
         int[] levelIndexes = new int[] { 0, 1, 2, 3, 4, 5, 6, 7 }.OrderBy(x => rand.Next()).ToArray();
@@ -105,8 +99,13 @@ public static class LevelManager
             spawnambles = new List<(Vector2, bool, SpawnType)>
             {
                 (new Vector2(-2.70f,9.5f),false,SpawnType.GoldChest),
+                (new Vector2(31.73f,-6.51f),false,SpawnType.GoldChest),
                 (new Vector2(5.3f,-6.5f),false,SpawnType.ArcherEnemy),
                 (new Vector2(20f,8.5f),false,SpawnType.StrangeEnemy),
+                (new Vector2(-5.5f,0.32f),false,SpawnType.GoldCoin),
+                (new Vector2(-4.5f,0.32f),false,SpawnType.GoldCoin),
+                (new Vector2(-3.5f,0.32f),false,SpawnType.GoldCoin),
+                (new Vector2(-2.5f,0.32f),false,SpawnType.GoldCoin),
             }
         });
 
@@ -117,6 +116,7 @@ public static class LevelManager
             spawnambles = new List<(Vector2, bool, SpawnType)>
             {
                 (new Vector2(16.3f,4.5f),false,SpawnType.GoldChest),
+                (new Vector2(-12.68f,5.49f),false,SpawnType.GoldChest),
 
                 (new Vector2(11.2f,-2.7f),false,SpawnType.GoldCoin),
                 (new Vector2(12.3f,-2.7f),false,SpawnType.GoldCoin),
@@ -136,6 +136,7 @@ public static class LevelManager
             {
                 (new Vector2(-2.7f,8.5f),false,SpawnType.GoldChest), 
                 (new Vector2(-7f,8.5f),false,SpawnType.StrangeEnemy),
+                (new Vector2(-5.69f,12.2f),false,SpawnType.MushroomEnemy),
 
                 (new Vector2(15.2f,6.3f),false,SpawnType.GoldCoin), 
                 (new Vector2(17.7f,6.3f),false,SpawnType.GoldCoin), 
@@ -154,6 +155,7 @@ public static class LevelManager
 
                 (new Vector2(-15.4f,-3.51f),false,SpawnType.GoldChest),
                 (new Vector2(-9.58f,-3.51f),false,SpawnType.StrangeEnemy),
+                (new Vector2(11.35f,-3.6f),false,SpawnType.MushroomEnemy),
 
                 (new Vector2(-13.9f,-3.51f),false,SpawnType.GoldCoin),
                 (new Vector2(-3.8f,-4.5f),false,SpawnType.GoldCoin),
@@ -172,6 +174,8 @@ public static class LevelManager
                 (new Vector2(-7.7f, 14.3f),false,SpawnType.GoldCoin),
                 
                 (new Vector2(23.2f,0.5f),false,SpawnType.StrangeEnemy),
+                (new Vector2(0.5f,4.34f),false,SpawnType.ArcherEnemy),
+                (new Vector2(27.42f,-4.45f),false,SpawnType.MushroomEnemy),
             }
         });
 
@@ -185,6 +189,10 @@ public static class LevelManager
                 (new Vector2(18.5f, -2.67f),false,SpawnType.GoldCoin),
                 (new Vector2(28f, -2.67f),false,SpawnType.GoldCoin),
                 (new Vector2(37.3f, -2.67f),false,SpawnType.GoldCoin),
+                (new Vector2(-10.17f, 11.49f),false,SpawnType.GoldChest),
+
+                (new Vector2(-10.89f, 2.5f),false,SpawnType.ArcherEnemy),
+
 
 
             }
@@ -199,6 +207,8 @@ public static class LevelManager
                 (new Vector2(57.3f, -3.5f),false,SpawnType.GoldChest),
                 (new Vector2(60.7f, -3.65f),false,SpawnType.GoldCoin),
                 (new Vector2(61.7f, -3.65f),false,SpawnType.GoldCoin),
+
+                (new Vector2(61.3f, -3.53f),false,SpawnType.ArcherEnemy),
             }
         });
 
@@ -208,13 +218,17 @@ public static class LevelManager
             LevelIndex = 11,
             spawnambles = new List<(Vector2, bool, SpawnType)>
             {
-                (new Vector2(-15.9f, 13.31f),false,SpawnType.GoldChest),
+                (new Vector2(-15.9f, 13.51f),false,SpawnType.GoldChest),
                 (new Vector2(-15.07f, 13.31f),false,SpawnType.GoldCoin),
                 (new Vector2(-14.27f, 13.31f),false,SpawnType.GoldCoin),
                 (new Vector2(-13.3f, 13.31f),false,SpawnType.GoldCoin),
 
                 (new Vector2(21.23f, 7.55f),false,SpawnType.StrangeEnemy),
                 (new Vector2(46f, 7.55f),false,SpawnType.StrangeEnemy),
+
+                (new Vector2(28.61f, 7.55f),false,SpawnType.ArcherEnemy),
+                (new Vector2(53.9f, 7.55f),false,SpawnType.MushroomEnemy),
+
 
 
             }

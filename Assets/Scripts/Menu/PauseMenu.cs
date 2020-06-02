@@ -41,8 +41,9 @@ public class PauseMenu : MonoBehaviour
     public void QuitGame()
     {
         Debug.Log("QuitGame");
-        if(!LevelManager.isPlayerDead)
+        if(!LevelManager.isPlayerDead && !(SceneManager.GetActiveScene().name == "CreditScene"))
             SaveSystem.SaveLevels();
+
         Application.Quit();
     }
 

@@ -9,18 +9,16 @@ public class SpawningPlace : MonoBehaviour
     public bool IsLeft = false;
 
     public Transform player;
-    // Start is called before the first frame update
+
     void Start()
     {
         Debug.Log($"Current level: {SceneManager.GetActiveScene().name}");
         if (!LevelManager.LeftOnLeft && IsLeft)
         {
-            //Debug.Log("Player entered on Left");
             player.position = transform.position;
         }
         else if (LevelManager.LeftOnLeft && !IsLeft)
         {
-            //Debug.Log("Player entered on Right");
             player.position = transform.position;
         }
     }
@@ -31,7 +29,6 @@ public class SpawningPlace : MonoBehaviour
         {
             if (IsLeft)
             {
-                Debug.Log("Player left on left");
                 LevelManager.LeftOnLeft = true;
                 // Go to the left scene
                 if(LevelManager.currentLevelData.Previous != null)
@@ -42,7 +39,6 @@ public class SpawningPlace : MonoBehaviour
             }
             else
             {
-                Debug.Log("Player left on right");
                 LevelManager.LeftOnLeft = false;
                 // Go to the right scene
                 if (LevelManager.currentLevelData.Next != null)
