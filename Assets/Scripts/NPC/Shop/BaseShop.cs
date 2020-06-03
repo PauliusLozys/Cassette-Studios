@@ -40,7 +40,7 @@ public abstract class BaseShop : MonoBehaviour
         upgrades.Add(new Upgrades(UpgradeStats.AgilityUpgrade, "Agility upgrade", "Current movement speed:", 200, 13.0f, true, GameAssets.i.AgilityIconSprite));
         upgrades.Add(new Upgrades(UpgradeStats.JumpingUpgrade, "Jumping upgrade", "Current number of Jumps:", 2000, 2, true, GameAssets.i.JumpingIconSprite));
 
-        upgrades.Add(new Upgrades(UpgradeStats.WeaponUpgrade, "Weapon upgrade", "Current melee damage:", 100, 80, false, GameAssets.i.WeaponIconSprite));
+        upgrades.Add(new Upgrades(UpgradeStats.WeaponUpgrade, "Weapon upgrade", "Current melee damage:", 100, 50, false, GameAssets.i.WeaponIconSprite));
         upgrades.Add(new Upgrades(UpgradeStats.RangedUpgrade, "Bow upgrade", "Current range damage:", 150, 50, false, GameAssets.i.RangedIconSprite));
     }
     protected float GetCurrentStatInfo(UpgradeStats upgrades)
@@ -104,7 +104,27 @@ public abstract class BaseShop : MonoBehaviour
     }
     protected void UpdateItemPrice(Upgrades upgrade)
     {
-        upgrade.Price = upgrade.BasePrice + (int)(upgrade.BasePrice * GetCurrentStatInfo(upgrade.Stat)/100);
+        switch (upgrade.Stat)
+        {
+            case UpgradeStats.HealthUpgrade:
+                upgrade.Price = upgrade.BasePrice + (int)(upgrade.BasePrice * GetCurrentStatInfo(upgrade.Stat) / 35);
+                break;
+            case UpgradeStats.ArmourUpgrade:
+                upgrade.Price = upgrade.BasePrice + (int)(upgrade.BasePrice * GetCurrentStatInfo(upgrade.Stat) / 20);
+                break;
+            case UpgradeStats.AgilityUpgrade:
+                upgrade.Price = upgrade.BasePrice + (int)(upgrade.BasePrice * GetCurrentStatInfo(upgrade.Stat) / 10);
+                break;
+            case UpgradeStats.JumpingUpgrade:
+                upgrade.Price = upgrade.BasePrice + (int)(upgrade.BasePrice * GetCurrentStatInfo(upgrade.Stat) / 50);
+                break;
+            case UpgradeStats.WeaponUpgrade:
+                upgrade.Price = upgrade.BasePrice + (int)(upgrade.BasePrice * GetCurrentStatInfo(upgrade.Stat) / 10);
+                break;
+            case UpgradeStats.RangedUpgrade:
+                upgrade.Price = upgrade.BasePrice + (int)(upgrade.BasePrice * GetCurrentStatInfo(upgrade.Stat) / 10);
+                break;
+        }
     }
     public void TryBuyUpgrade(Upgrades upgrade, int shopIndex)
     {
