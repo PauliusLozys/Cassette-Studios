@@ -9,6 +9,7 @@ using UnityEngine.SceneManagement;
 public class PlayerStats : MonoBehaviour
 {
     public TextMeshProUGUI text;
+    public GameObject pauseUI;
     [SerializeField]
     private int money;
 
@@ -87,6 +88,7 @@ public class PlayerStats : MonoBehaviour
     private void Awake()
     {
         PlayerData data = SaveSystem.LoadSave();
+        pauseUI = GameObject.Find("Canvas").transform.Find("DeathScreen").gameObject;
         if(data != null && SceneManager.GetActiveScene().name != "TutorialScene") // If save file exists AND its not a tutorial level
         {
             maxHealth = data.maxHealth;
@@ -155,10 +157,12 @@ public class PlayerStats : MonoBehaviour
     private void Die()
     {
         // Delete Level data
+        pauseUI.SetActive(true);
         currentHealth = maxHealth;
         LevelManager.isPlayerDead = true;
         SaveSystem.DeleteLevelSave();
         Destroy(gameObject);
+        
     }
 
     public void IncreaseMoney(int amount)
