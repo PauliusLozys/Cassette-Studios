@@ -1354,7 +1354,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 26b372c5116a4994cabd5567cea31f86, type: 3}
+  m_Sprite: {fileID: -4821530343430527414, guid: d7395836d8e34cd409f128209e5ea1c9,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1372,13 +1373,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1163347331}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 21.55, y: -2.11, z: 0.1}
   m_LocalScale: {x: 0.79044336, y: 0.79044336, z: 0.9782715}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 13
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &1163347334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1393,7 +1394,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue: {fileID: 1971267561}
   isDialogueOpen: 0
-  text: Gib money and the sex dungeon is yours!!! Press "E" if you want to enter.
+  text: So you want to go to my dungeon? Pay up and I'll let you in
 --- !u!114 &1163347335
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1424,7 +1425,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.56, y: 2.56}
+    oldSize: {x: 1.25, y: 2.892857}
     newSize: {x: 6, y: 6}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -2432,8 +2433,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue: {fileID: 1971267561}
   isDialogueOpen: 0
-  text: Hwello frwiwend, I swell all thwe buffs that you wwill nwewed on your journwey
-    through thwe dungweon :) OwO
+  text: Going into the castle to rescue the princess? Sounds awfully familiar
 --- !u!1 &1774870073
 GameObject:
   m_ObjectHideFlags: 0
@@ -2584,8 +2584,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue: {fileID: 1971267561}
   isDialogueOpen: 0
-  text: Wanna know how i got this ripped? Well it is quite simple my friend, you
-    see, I played Terraria 1.4 update when it came out ;)
+  text: Did you know that game developers are usually bad at art? Surprising
 --- !u!1 &1867715236
 GameObject:
   m_ObjectHideFlags: 0
@@ -4284,12 +4283,12 @@ PrefabInstance:
     - target: {fileID: 3430806808957863195, guid: 892f1245f3c649a4aabe2afa0cd26cea,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.5544004
+      value: -6.554368
       objectReference: {fileID: 0}
     - target: {fileID: 3430806808957863195, guid: 892f1245f3c649a4aabe2afa0cd26cea,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -17.721178
+      value: -17.699059
       objectReference: {fileID: 0}
     - target: {fileID: 3430806809137812560, guid: 892f1245f3c649a4aabe2afa0cd26cea,
         type: 3}

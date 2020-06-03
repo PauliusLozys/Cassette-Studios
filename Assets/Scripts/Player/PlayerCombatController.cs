@@ -128,8 +128,8 @@ public class PlayerCombatController : MonoBehaviour
     }
     private void Damage(AttackDetails attackDetails)
     {
-        if (!PC.GetDashStatus())
-        {
+        //if (!PC.GetDashStatus())
+       // {
             if (!isInvulnerable)
             {
                 StartCoroutine("GetInvulnerable");
@@ -149,7 +149,7 @@ public class PlayerCombatController : MonoBehaviour
                 PC.Knockback(direction);
             }
             
-        }
+      //  }
     }
     private void OnDrawGizmos()
     {

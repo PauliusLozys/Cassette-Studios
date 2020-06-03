@@ -23,7 +23,7 @@ public class EnterTheDungeonScript : MonoBehaviour
             LevelLoader.CanEnterTheDungeon = true;
             hasGivenMoney = true;
             if(player.GetPlayerMoney() > 0)
-                dialogue.ChangeDialogueText("That is some good cash bro.\nYou can go to the dungeon now ;)");
+                dialogue.ChangeDialogueText("That is some good cash.\nYou may go to the dungeon now");
             else
                 dialogue.ChangeDialogueText("Wow, you are so broke I may just let you in for free");
 
@@ -32,7 +32,7 @@ public class EnterTheDungeonScript : MonoBehaviour
         }
         else if(Input.GetKeyDown(KeyCode.E) && dialogue.isDialogueOpen && hasGivenMoney)
         {
-            dialogue.ChangeDialogueText("You paid me already mate.\nYou can go to the dungeon now ;)");
+            dialogue.ChangeDialogueText("You paid me already, my man.\nYou can go in already");
         }
     }
 }
