@@ -115,7 +115,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d929e3822450ff345b9e7ac2903c3b99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinValue: 100
+  coinValue: 50
+  SpawnedIndex: -1
 --- !u!58 &1608756423542830712
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -35,13 +35,13 @@ public abstract class BaseShop : MonoBehaviour
     protected void LoadAllUpgrades()
     {
         // Add shop upgrades into a list here
-        upgrades.Add(new Upgrades(UpgradeStats.HealthUpgrade, "Health upgrade", "Current health:", 360, 400, true, GameAssets.i.HealthIconSprite));
-        upgrades.Add(new Upgrades(UpgradeStats.ArmourUpgrade, "Defence upgrade", "Current defence:", 600, 20, true, GameAssets.i.ArmourIconSprite));
-        upgrades.Add(new Upgrades(UpgradeStats.AgilityUpgrade, "Agility upgrade", "Current movement speed:", 520, 13.0f, true, GameAssets.i.AgilityIconSprite));
-        upgrades.Add(new Upgrades(UpgradeStats.JumpingUpgrade, "Jumping upgrade", "Current number of Jumps:", 4500, 2, true, GameAssets.i.JumpingIconSprite));
+        upgrades.Add(new Upgrades(UpgradeStats.HealthUpgrade, "Health upgrade", "Current health:", 100, 400, true, GameAssets.i.HealthIconSprite));
+        upgrades.Add(new Upgrades(UpgradeStats.ArmourUpgrade, "Defence upgrade", "Current defence:", 200, 45, true, GameAssets.i.ArmourIconSprite));
+        upgrades.Add(new Upgrades(UpgradeStats.AgilityUpgrade, "Agility upgrade", "Current movement speed:", 200, 13.0f, true, GameAssets.i.AgilityIconSprite));
+        upgrades.Add(new Upgrades(UpgradeStats.JumpingUpgrade, "Jumping upgrade", "Current number of Jumps:", 2000, 2, true, GameAssets.i.JumpingIconSprite));
 
-        upgrades.Add(new Upgrades(UpgradeStats.WeaponUpgrade, "Weapon upgrade", "Current melee damage:", 145, 80, false, GameAssets.i.WeaponIconSprite));
-        upgrades.Add(new Upgrades(UpgradeStats.RangedUpgrade, "Bow upgrade", "Current range damage:", 320, 50, false, GameAssets.i.RangedIconSprite));
+        upgrades.Add(new Upgrades(UpgradeStats.WeaponUpgrade, "Weapon upgrade", "Current melee damage:", 100, 50, false, GameAssets.i.WeaponIconSprite));
+        upgrades.Add(new Upgrades(UpgradeStats.RangedUpgrade, "Bow upgrade", "Current range damage:", 150, 50, false, GameAssets.i.RangedIconSprite));
     }
     protected float GetCurrentStatInfo(UpgradeStats upgrades)
     {
@@ -84,12 +84,17 @@ public abstract class BaseShop : MonoBehaviour
         shopItemTransform.Find("nameText").GetComponent<TextMeshProUGUI>().SetText(upgrade.UpgradeName);
         shopItemTransform.Find("priceText").GetComponent<TextMeshProUGUI>().SetText(upgrade.Price.ToString());
         shopItemTransform.Find("itemIcon").GetComponent<Image>().sprite = upgrade.Sprite;
-        if (GetCurrentStatInfo(upgrade.Stat) < upgrade.ItemCap)
+        if (GetCurrentStatInfo(upgrade.Stat) < upgrade.ItemCap && upgrade.Price <= playerStats.GetPlayerMoney())
             shopItemTransform.Find("currentStats").GetComponent<TextMeshProUGUI>().SetText($"{upgrade.UpgradeDescription} {GetCurrentStatInfo(upgrade.Stat)}/{upgrade.ItemCap}");
-        else
+        else if(GetCurrentStatInfo(upgrade.Stat) >= upgrade.ItemCap)
         {
             shopItemTransform.Find("background").GetComponent<Image>().color = Color.red;
             shopItemTransform.Find("currentStats").GetComponent<TextMeshProUGUI>().SetText("Maximum limit reaced");
+        }
+        else if(upgrade.Price > playerStats.GetPlayerMoney())
+        {
+            shopItemTransform.Find("background").GetComponent<Image>().color = Color.red;
+            shopItemTransform.Find("currentStats").GetComponent<TextMeshProUGUI>().SetText("Insufficient funds");
         }
         shopItemTransform.GetComponent<Button>().onClick.AddListener(() =>
         {
@@ -99,15 +104,33 @@ public abstract class BaseShop : MonoBehaviour
     }
     protected void UpdateItemPrice(Upgrades upgrade)
     {
-        upgrade.Price = upgrade.BasePrice + (int)(upgrade.BasePrice * GetCurrentStatInfo(upgrade.Stat)/100);
+        switch (upgrade.Stat)
+        {
+            case UpgradeStats.HealthUpgrade:
+                upgrade.Price = upgrade.BasePrice + (int)(upgrade.BasePrice * GetCurrentStatInfo(upgrade.Stat) / 35);
+                break;
+            case UpgradeStats.ArmourUpgrade:
+                upgrade.Price = upgrade.BasePrice + (int)(upgrade.BasePrice * GetCurrentStatInfo(upgrade.Stat) / 20);
+                break;
+            case UpgradeStats.AgilityUpgrade:
+                upgrade.Price = upgrade.BasePrice + (int)(upgrade.BasePrice * GetCurrentStatInfo(upgrade.Stat) / 10);
+                break;
+            case UpgradeStats.JumpingUpgrade:
+                upgrade.Price = upgrade.BasePrice + (int)(upgrade.BasePrice * GetCurrentStatInfo(upgrade.Stat) / 50);
+                break;
+            case UpgradeStats.WeaponUpgrade:
+                upgrade.Price = upgrade.BasePrice + (int)(upgrade.BasePrice * GetCurrentStatInfo(upgrade.Stat) / 10);
+                break;
+            case UpgradeStats.RangedUpgrade:
+                upgrade.Price = upgrade.BasePrice + (int)(upgrade.BasePrice * GetCurrentStatInfo(upgrade.Stat) / 10);
+                break;
+        }
     }
     public void TryBuyUpgrade(Upgrades upgrade, int shopIndex)
     {
         // If player has enough money
-        if (customer.TrySpendGold(upgrade.Price))
+        if (GetCurrentStatInfo(upgrade.Stat) < upgrade.ItemCap && customer.TrySpendGold(upgrade.Price)) // If the player has money and the cap is not reached
         {
-            if (GetCurrentStatInfo(upgrade.Stat) < upgrade.ItemCap) // If cap is reached shop doenst work
-            {
                 customer.BoughtItem(upgrade.Stat);
                 // Updating Item description
                 if (GetCurrentStatInfo(upgrade.Stat) < upgrade.ItemCap)
@@ -121,12 +144,14 @@ public abstract class BaseShop : MonoBehaviour
                     buttons[shopIndex].Find("currentStats").GetComponent<TextMeshProUGUI>().SetText("Maximum limit reaced");
                     buttons[shopIndex].Find("background").GetComponent<Image>().color = Color.red;
                 }
-            }
         }
         else
         {
-            buttons[shopIndex].Find("currentStats").GetComponent<TextMeshProUGUI>().SetText("Insufficient funds");
-            buttons[shopIndex].Find("background").GetComponent<Image>().color = Color.red;
+            if(GetCurrentStatInfo(upgrade.Stat) < upgrade.ItemCap)
+            {
+                buttons[shopIndex].Find("currentStats").GetComponent<TextMeshProUGUI>().SetText("Insufficient funds");
+                buttons[shopIndex].Find("background").GetComponent<Image>().color = Color.red;
+            }
         }
     }
 

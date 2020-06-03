@@ -9,6 +9,10 @@ using UnityEngine.SceneManagement;
 public class PlayerStats : MonoBehaviour
 {
     public TextMeshProUGUI text;
+    public GameObject pauseUI;
+    public GameObject audioManager;
+    public AudioManager audio;
+
     [SerializeField]
     private int money;
 
@@ -84,10 +88,11 @@ public class PlayerStats : MonoBehaviour
     {
         playerRangedSpeed = value;
     }
-    private void Start()
+    private void Awake()
     {
         PlayerData data = SaveSystem.LoadSave();
-        if(data != null && SceneManager.GetActiveScene().name != "TutorialScene") // If save file exists AND its not a tutorial level
+
+        if (data != null && SceneManager.GetActiveScene().name != "TutorialScene") // If save file exists AND its not a tutorial level
         {
             maxHealth = data.maxHealth;
             currentHealth = data.currentHealth;
@@ -98,7 +103,6 @@ public class PlayerStats : MonoBehaviour
             numberOfJumps = data.numberOfJumps;
             movementSpeed = data.movementSpeed;
             money = data.money;
-            text.text = money.ToString();
             Debug.Log("File succsessfully loaded");
         }
         else // if save file is not found, assing defaul values
@@ -106,12 +110,17 @@ public class PlayerStats : MonoBehaviour
             SetDefaultStats();
         }
 
+        text.text = money.ToString();
         playerHealthBar.SetMaxHealth(maxHealth);
         
         if (SceneManager.GetActiveScene().name == "HubScene")
             currentHealth = maxHealth;
             
         playerHealthBar.SetHealth(currentHealth);
+
+        pauseUI = GameObject.Find("Canvas").transform.Find("DeathScreen").gameObject;
+        audioManager = GameObject.Find("AudioManager").gameObject;
+        audio = audioManager.GetComponent<AudioManager>();
     }
 
     /// <summary>
@@ -138,10 +147,13 @@ public class PlayerStats : MonoBehaviour
     public void DecreaseHealth(int damage)
     {
         // Damage reduction
-        var newDamage = damage - (defence * 0.75f);
-        
-        currentHealth -= (int)newDamage;
-        Debug.Log(currentHealth);
+        if (defence > 0)
+            currentHealth -= (int)(damage * (100 - defence / 100.0));
+        else
+            currentHealth -= damage;
+
+        //Debug.Log(currentHealth);
+
         playerHealthBar.SetHealth(currentHealth);
         if (currentHealth <= 0)
         {
@@ -152,9 +164,13 @@ public class PlayerStats : MonoBehaviour
     private void Die()
     {
         // Delete Level data
+        audio.PlayDeathSound();
+        pauseUI.SetActive(true);
         currentHealth = maxHealth;
+        LevelManager.isPlayerDead = true;
         SaveSystem.DeleteLevelSave();
         Destroy(gameObject);
+        
     }
 
     public void IncreaseMoney(int amount)

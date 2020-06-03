@@ -41,13 +41,28 @@ public class PauseMenu : MonoBehaviour
     public void QuitGame()
     {
         Debug.Log("QuitGame");
-        SaveSystem.SaveLevels();
+        if(!LevelManager.isPlayerDead && !(SceneManager.GetActiveScene().name == "CreditScene"))
+            SaveSystem.SaveLevels();
+
         Application.Quit();
     }
 
     public void GoToHub()
     {
         Resume();
+        if (!LevelManager.isPlayerDead)
+            SaveSystem.SaveLevels();
         SceneManager.LoadScene("HubScene");
+    }
+
+    public void LoadMainMenu()
+    {
+        Resume();
+        if (!LevelManager.isPlayerDead && SceneManager.GetActiveScene().name != "CreditScene") // Jei Player Gyvas ir ne kreditu scena
+            SaveSystem.SaveLevels();
+        else
+            SaveSystem.DeleteLevelSave();
+
+        SceneManager.LoadScene(0);
     }
 }

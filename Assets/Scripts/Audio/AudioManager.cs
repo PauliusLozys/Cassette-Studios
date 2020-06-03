@@ -50,4 +50,15 @@ public class AudioManager : MonoBehaviour
 
         s.source.Play();
     }
+
+    public void PlayDeathSound()
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == "Theme");
+        s.source.Stop();
+
+        Sound d = Array.Find(sounds, sound => sound.name == "Death");
+        d.source.Play();
+
+        s.source.PlayDelayed(3);
+    }
 }

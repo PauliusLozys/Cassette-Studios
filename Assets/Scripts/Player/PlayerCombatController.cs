@@ -7,14 +7,18 @@ public class PlayerCombatController : MonoBehaviour
     [SerializeField]
     private bool combatEnabled;
     [SerializeField]
-    private float inputTimer, attack1Radius, rangedAttackCooldown;
+    private float inputTimer, attack1Radius; 
+    [SerializeField]
+    private float rangedAttackCooldown;
     [SerializeField]
     private Transform attack1HitBoxPos;
     [SerializeField]
     private LayerMask whatIsDamageable;
     [SerializeField]
     private float stunDamageAmount = 1f;
-    
+    [SerializeField]
+    private float invulnerabilityTime = 1f;
+
     private bool gotInput, isAttacking, isFirstAttack;
 
     private float lastInputTime = Mathf.NegativeInfinity;
@@ -31,12 +35,18 @@ public class PlayerCombatController : MonoBehaviour
 
     private PlayerStats playerStats;
 
+    private bool isInvulnerable = false;
+    private Renderer rend;
+    private Color color;
+
     private void Start()
     {
         anim = GetComponent<Animator>();
         anim.SetBool("canAttack", combatEnabled);
         PC = GetComponent<PlayerController>();
         playerStats = GetComponent<PlayerStats>();
+        rend = GetComponent<Renderer>();
+        color = rend.material.color;
     }
 
     private void Update()
@@ -60,7 +70,7 @@ public class PlayerCombatController : MonoBehaviour
             }
         }
 
-        if (Input.GetButtonDown("Fire1") && Time.time - lastRangedAttackTime > rangedAttackCooldown)
+        if (combatEnabled && Input.GetButtonDown("Fire1") && Time.time - lastRangedAttackTime > rangedAttackCooldown)
         {
             lastRangedAttackTime = Time.time;
             Shoot();
@@ -120,23 +130,28 @@ public class PlayerCombatController : MonoBehaviour
     }
     private void Damage(AttackDetails attackDetails)
     {
-        if (!PC.GetDashStatus())
-        {
-            int direction;
-
-            playerStats.DecreaseHealth(Convert.ToInt32(attackDetails.damageAmount));
-
-            if (attackDetails.position.x < transform.position.x)
+        //if (!PC.GetDashStatus())
+       // {
+            if (!isInvulnerable)
             {
-                direction = 1;
-            }
-            else
-            {
-                direction = -1;
-            }
+                StartCoroutine("GetInvulnerable");
+                int direction;
 
-            PC.Knockback(direction);
-        }
+                playerStats.DecreaseHealth(Convert.ToInt32(attackDetails.damageAmount));
+
+                if (attackDetails.position.x < transform.position.x)
+                {
+                    direction = 1;
+                }
+                else
+                {
+                    direction = -1;
+                }
+
+                PC.Knockback(direction);
+            }
+            
+      //  }
     }
     private void OnDrawGizmos()
     {
@@ -148,4 +163,18 @@ public class PlayerCombatController : MonoBehaviour
         combatEnabled = state;
     }
 
+    public float GetRangedAttackCooldown()
+    {
+        return rangedAttackCooldown;
+    }
+    IEnumerator GetInvulnerable()
+    {
+        isInvulnerable = true;
+        color.a = 0.5f;
+        rend.material.color = color;
+        yield return new WaitForSeconds(invulnerabilityTime);
+        color.a = 1f;
+        isInvulnerable = false;
+        rend.material.color = color;
+    }
 }

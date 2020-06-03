@@ -25,7 +25,12 @@ public class E1_PlayerDetectedState : PlayerDetectedState
     {
         base.LogicUpdate();
 
-        if (performCloseRangeAction)
+        if (!isDetectingLedge)
+        {
+            enemy.Flip();
+            stateMachine.ChangeState(enemy.moveState);
+        }
+        else if (performCloseRangeAction)
         {
             stateMachine.ChangeState(enemy.meleeAttackState);
         }

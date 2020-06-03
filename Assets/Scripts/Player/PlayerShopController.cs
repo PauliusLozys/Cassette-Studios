@@ -38,11 +38,6 @@ public class PlayerShopController : MonoBehaviour, IShopCustomer
             IsShopOpen = false;
             playerCombat.SetCombat(true);
         }
-        else if (Input.GetKeyDown(KeyCode.M))
-        {
-            playerStats.IncreaseMoney(10_000);
-        }
-        
     }
     public bool TrySpendGold(int goldAmount)
     {

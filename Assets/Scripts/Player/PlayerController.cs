@@ -110,21 +110,6 @@ public class PlayerController : MonoBehaviour
         CheckLedgeClimb();
         CheckDash();
         CheckKnockback();
-        CheckCheats();
-    }
-
-    private void CheckCheats()
-    {
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            playerStats.SetDefaultStats();
-            SaveSystem.DeleteLevelSave();
-        }
-        else if (Input.GetKeyDown(KeyCode.P))
-        {
-            Debug.Log("Levels saved");
-            SaveSystem.SaveLevels();
-        }
     }
 
     private void FixedUpdate()
@@ -464,7 +449,7 @@ public class PlayerController : MonoBehaviour
 
     private void Flip()
     {
-        if (!isWallSliding && canFlip && !knockback)
+        if (!isWallSliding && canFlip && !knockback && !PauseMenu.GameIsPaused && !Pause.GameIsPaused)
         {
             facingDirection *= -1;
             isFacingRight = !isFacingRight;

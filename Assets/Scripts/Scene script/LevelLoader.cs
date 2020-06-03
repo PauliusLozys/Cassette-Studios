@@ -17,7 +17,10 @@ public class LevelLoader : MonoBehaviour
     }
     public void LoadNextLevel()
     {
-        StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
+        if(SceneManager.GetActiveScene().name == "TutorialScene")
+            StartCoroutine(LoadLevel(0));
+        else
+            StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
     }
 
     IEnumerator LoadLevel(int levelIndex)
@@ -33,8 +36,11 @@ public class LevelLoader : MonoBehaviour
     {
         if (collision.tag =="Player" && CanEnterTheDungeon)
         {
-            SaveSystem.DeleteLevelSave();
-            LevelManager.LoadLevelData();
+            if (SceneManager.GetActiveScene().name != "TutorialScene")
+            {
+                SaveSystem.DeleteLevelSave();
+                LevelManager.LoadLevelData();
+            }
             LoadNextLevel();
         }
         else if (collision.tag == "Player" && !CanEnterTheDungeon)
