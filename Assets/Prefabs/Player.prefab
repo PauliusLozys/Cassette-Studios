@@ -389,6 +389,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 0}
+  pauseUI: {fileID: 0}
   money: 0
   maxHealth: 100
   playerRangedDamage: 20
