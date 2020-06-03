@@ -110,21 +110,6 @@ public class PlayerController : MonoBehaviour
         CheckLedgeClimb();
         CheckDash();
         CheckKnockback();
-        CheckCheats();
-    }
-
-    private void CheckCheats()
-    {
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            playerStats.SetDefaultStats();
-            SaveSystem.DeleteLevelSave();
-        }
-        else if (Input.GetKeyDown(KeyCode.P))
-        {
-            Debug.Log("Levels saved");
-            SaveSystem.SaveLevels();
-        }
     }
 
     private void FixedUpdate()
