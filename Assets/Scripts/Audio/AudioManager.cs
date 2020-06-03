@@ -55,10 +55,10 @@ public class AudioManager : MonoBehaviour
     {
         Sound s = Array.Find(sounds, sound => sound.name == "Theme");
         s.source.Stop();
+
         Sound d = Array.Find(sounds, sound => sound.name == "Death");
         d.source.Play();
 
-        //d.source.Stop();
         s.source.PlayDelayed(3);
     }
 }

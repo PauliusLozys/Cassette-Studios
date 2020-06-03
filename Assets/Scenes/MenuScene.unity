@@ -162,7 +162,7 @@ MonoBehaviour:
     volume: 0.306
     pitch: 1
     source: {fileID: 0}
-    loop: 1
+    loop: 0
 --- !u!4 &428584747
 Transform:
   m_ObjectHideFlags: 0
