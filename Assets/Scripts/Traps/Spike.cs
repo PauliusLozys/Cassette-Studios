@@ -8,7 +8,7 @@ public class Spike : MonoBehaviour
 
     private void Start()
     {
-        attackDetails.damageAmount = 5;
+        attackDetails.damageAmount = 30;
         attackDetails.position = this.transform.position;
     }
 

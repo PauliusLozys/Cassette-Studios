@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca01146a905658d4289f732e102b8a7a, type: 3}
   m_Name: E3_StunData
   m_EditorClassIdentifier: 
-  stunTime: 3
+  stunTime: 1
   stunKnockbackTime: 0.2
   stunKnockbackSpeed: 20
   stunKnockbackAngle: {x: 0.5, y: 0.5}

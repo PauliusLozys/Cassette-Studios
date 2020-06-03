@@ -21,7 +21,7 @@ public class ProjectilePlayer : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D hitInfo)
     {
-        if (hitInfo.gameObject.tag != "Player" && hitInfo.gameObject.tag != "LevelArea" && hitInfo.gameObject.tag != "PlayerProjectile")
+        if (hitInfo.gameObject.tag != "Player" && hitInfo.gameObject.tag != "LevelArea" && hitInfo.gameObject.tag != "PlayerProjectile" &&hitInfo.gameObject.tag !="Untagged"&&hitInfo.gameObject.tag !="Coins" && hitInfo.gameObject.tag != "Interactable")
         {
             Debug.Log("Detected: " + hitInfo.gameObject.tag);
 

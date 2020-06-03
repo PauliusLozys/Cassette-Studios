@@ -365,13 +365,13 @@ MonoBehaviour:
   combatEnabled: 1
   inputTimer: 0.2
   attack1Radius: 0.8
-  rangedAttackCooldown: 1
+  rangedAttackCooldown: 3.5
   attack1HitBoxPos: {fileID: 2011612969481061823}
   whatIsDamageable:
     serializedVersion: 2
     m_Bits: 1024
   stunDamageAmount: 1
-  invulnerabilityTime: 0.5
+  invulnerabilityTime: 0.75
   rangedAttackDamage: 20
   firePoint: {fileID: 5638994937731674342}
   projectilePrefab: {fileID: 2260879493448266178, guid: 0f625b5ae4964834381c8a7a5bd54886,

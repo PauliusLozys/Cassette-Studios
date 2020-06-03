@@ -1828,8 +1828,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue: {fileID: 1971267561}
   isDialogueOpen: 0
-  text: To enter this sex dungeon, one must give his money to the person who loves
-    money most.
+  text: To enter the dungeon you must first pay the king.
 --- !u!1 &1354615171
 GameObject:
   m_ObjectHideFlags: 0
@@ -4283,12 +4282,12 @@ PrefabInstance:
     - target: {fileID: 3430806808957863195, guid: 892f1245f3c649a4aabe2afa0cd26cea,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.554368
+      value: -6.5543895
       objectReference: {fileID: 0}
     - target: {fileID: 3430806808957863195, guid: 892f1245f3c649a4aabe2afa0cd26cea,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -17.699059
+      value: -17.713665
       objectReference: {fileID: 0}
     - target: {fileID: 3430806809137812560, guid: 892f1245f3c649a4aabe2afa0cd26cea,
         type: 3}

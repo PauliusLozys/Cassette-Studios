@@ -123,6 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd28f34496eeb5c42b8d923bd4ce99f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  text: 
 --- !u!114 &5642584890051249140
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,4 +136,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c157ae2ad91a43d4ca48504e3dbd24eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chestValue: 1000
+  chestValue: 250
+  SpawnedIndex: -1
