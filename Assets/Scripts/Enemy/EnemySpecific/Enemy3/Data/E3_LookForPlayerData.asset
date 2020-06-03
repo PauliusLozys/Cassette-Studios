@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: E3_LookForPlayerData
   m_EditorClassIdentifier: 
   amountOfTurns: 2
-  timeBetweenTurns: 0.3
+  timeBetweenTurns: 0.2
