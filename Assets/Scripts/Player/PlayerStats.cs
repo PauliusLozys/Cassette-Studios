@@ -10,6 +10,9 @@ public class PlayerStats : MonoBehaviour
 {
     public TextMeshProUGUI text;
     public GameObject pauseUI;
+    public GameObject audioManager;
+    public AudioManager audio;
+
     [SerializeField]
     private int money;
 
@@ -89,6 +92,9 @@ public class PlayerStats : MonoBehaviour
     {
         PlayerData data = SaveSystem.LoadSave();
         pauseUI = GameObject.Find("Canvas").transform.Find("DeathScreen").gameObject;
+        audioManager = GameObject.Find("AudioManager").gameObject;
+        audio = audioManager.GetComponent<AudioManager>();
+
         if(data != null && SceneManager.GetActiveScene().name != "TutorialScene") // If save file exists AND its not a tutorial level
         {
             maxHealth = data.maxHealth;
@@ -157,6 +163,7 @@ public class PlayerStats : MonoBehaviour
     private void Die()
     {
         // Delete Level data
+        audio.PlayDeathSound();
         pauseUI.SetActive(true);
         currentHealth = maxHealth;
         LevelManager.isPlayerDead = true;

@@ -157,6 +157,12 @@ MonoBehaviour:
     pitch: 1
     source: {fileID: 0}
     loop: 1
+  - name: Death
+    clip: {fileID: 8300000, guid: 2075a40c36d1ced45ae4915df628c48c, type: 3}
+    volume: 0.306
+    pitch: 1
+    source: {fileID: 0}
+    loop: 1
 --- !u!4 &428584747
 Transform:
   m_ObjectHideFlags: 0
