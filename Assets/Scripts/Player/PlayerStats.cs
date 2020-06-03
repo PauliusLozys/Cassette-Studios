@@ -148,7 +148,7 @@ public class PlayerStats : MonoBehaviour
     {
         // Damage reduction
         if (defence > 0)
-            currentHealth -= (int)(damage * (defence / 100.0));
+            currentHealth -= (int)(damage * (100 - defence / 100.0));
         else
             currentHealth -= damage;
 
