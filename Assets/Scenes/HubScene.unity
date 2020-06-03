@@ -1394,7 +1394,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue: {fileID: 1971267561}
   isDialogueOpen: 0
-  text: So you want to go to my dungeon? Pay up and I'll let you in
+  text: So you want to go to my dungeon? Pay up and I'll let you in (Press E)
 --- !u!114 &1163347335
 MonoBehaviour:
   m_ObjectHideFlags: 0
