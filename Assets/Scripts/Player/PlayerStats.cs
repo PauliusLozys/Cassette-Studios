@@ -91,11 +91,8 @@ public class PlayerStats : MonoBehaviour
     private void Awake()
     {
         PlayerData data = SaveSystem.LoadSave();
-        pauseUI = GameObject.Find("Canvas").transform.Find("DeathScreen").gameObject;
-        audioManager = GameObject.Find("AudioManager").gameObject;
-        audio = audioManager.GetComponent<AudioManager>();
 
-        if(data != null && SceneManager.GetActiveScene().name != "TutorialScene") // If save file exists AND its not a tutorial level
+        if (data != null && SceneManager.GetActiveScene().name != "TutorialScene") // If save file exists AND its not a tutorial level
         {
             maxHealth = data.maxHealth;
             currentHealth = data.currentHealth;
@@ -120,6 +117,10 @@ public class PlayerStats : MonoBehaviour
             currentHealth = maxHealth;
             
         playerHealthBar.SetHealth(currentHealth);
+
+        pauseUI = GameObject.Find("Canvas").transform.Find("DeathScreen").gameObject;
+        audioManager = GameObject.Find("AudioManager").gameObject;
+        audio = audioManager.GetComponent<AudioManager>();
     }
 
     /// <summary>
