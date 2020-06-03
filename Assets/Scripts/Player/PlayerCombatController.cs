@@ -68,7 +68,7 @@ public class PlayerCombatController : MonoBehaviour
             }
         }
 
-        if (Input.GetButtonDown("Fire1") && Time.time - lastRangedAttackTime > rangedAttackCooldown)
+        if (combatEnabled && Input.GetButtonDown("Fire1") && Time.time - lastRangedAttackTime > rangedAttackCooldown)
         {
             lastRangedAttackTime = Time.time;
             Shoot();
