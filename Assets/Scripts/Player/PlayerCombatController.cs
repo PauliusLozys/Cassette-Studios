@@ -7,7 +7,9 @@ public class PlayerCombatController : MonoBehaviour
     [SerializeField]
     private bool combatEnabled;
     [SerializeField]
-    private float inputTimer, attack1Radius, rangedAttackCooldown;
+    private float inputTimer, attack1Radius; 
+    [SerializeField]
+    private float rangedAttackCooldown;
     [SerializeField]
     private Transform attack1HitBoxPos;
     [SerializeField]
