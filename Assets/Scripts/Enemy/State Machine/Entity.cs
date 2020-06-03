@@ -153,6 +153,7 @@ public class Entity : MonoBehaviour
                 LevelManager.currentLevelData.Value.spawnambles[SpawnedIndex] = (LevelManager.currentLevelData.Value.spawnambles[SpawnedIndex].transform,
                                                                                  true,
                                                                                  LevelManager.currentLevelData.Value.spawnambles[SpawnedIndex].type);
+            Instantiate(entityData.drop, gameObject.transform.Find("Alive").transform.position, this.transform.rotation);
             isDead = true;
         }
     }

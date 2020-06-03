@@ -18,7 +18,7 @@ public class D_Entity : ScriptableObject
     public float stunRecovery = 2f;
 
     public GameObject hitParticle;
-
+    public GameObject drop;
     public float closeRangeActionDistance = 1f;
     public LayerMask whatIsGround;
     public LayerMask whatIsPlayer;

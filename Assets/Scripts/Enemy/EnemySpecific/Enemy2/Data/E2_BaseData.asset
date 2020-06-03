@@ -23,6 +23,7 @@ MonoBehaviour:
   stunRecovery: 2
   hitParticle: {fileID: 6240072112886026631, guid: d3ad3f1375e0d114ca19695641fceb61,
     type: 3}
+  drop: {fileID: 1608756423542830713, guid: dda0c7123b60fc74f87a2f4ab8725a2a, type: 3}
   closeRangeActionDistance: 1.3
   whatIsGround:
     serializedVersion: 2
