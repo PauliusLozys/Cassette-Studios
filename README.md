@@ -16,6 +16,6 @@ __Spooky Castle™__ is a 2D, roguelike, dungeon crawaler game that is in no way
 ## How to run it
 *NOTE: this is only available for **Windows** users*
 
-Download the latest compiled game zip file from the [Releases](https://github.com/RainbowDog98/Cassette-Studios/releases) section, extract it and run "Cassette studios game.exe"
+Download the latest compiled game zip file from the [Releases](https://github.com/RainbowDog98/Cassette-Studios/releases) section, extract it and run "Spooky Castle.exe"
 
 If you like what we did, we would very much appreciate if you gave us a donation on our itch.io page ;)
